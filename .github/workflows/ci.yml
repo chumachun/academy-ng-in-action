@@ -7,26 +7,21 @@ on:
     branches: [ "main", "*solution" ]
 
 jobs:
-  # This job will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+  # This job will do a clean installation of node dependencies, cache/restore them, build the source code and run tests
   # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
   build-ui:
 
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./ui
-
-    strategy:
-      matrix:
-        node-version: [20.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        working-directory: ./ui  
 
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - name: Setup node
+      uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 20
         cache: 'npm'
         cache-dependency-path: ./ui/package-lock.json
     - run: npm ci
@@ -34,6 +29,8 @@ jobs:
     - run: npm run lint
     - run: npm run test -- --watch=false
 
+  # This job will do a clean installation of NuGet dependencies, restore them, build the source code and run tests
+  # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
   build-api:
 
     runs-on: ubuntu-latest
