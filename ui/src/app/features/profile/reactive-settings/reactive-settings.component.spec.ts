@@ -33,7 +33,7 @@ describe('ReactiveSettingsComponent', () => {
         MatDatepickerModule,
         MatInputModule,
         MatFormFieldModule,
-        MatSelectModule
+        MatSelectModule,
       ],
       providers: [
         { provide: ActivatedRoute, useValue: { data: of({ user: {} }) } },
