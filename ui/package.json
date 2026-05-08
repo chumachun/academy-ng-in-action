@@ -8,9 +8,20 @@
     "build": "ng build",
     "test": "ng test",
     "test:cov": "ng test --watch=false --code-coverage=true && start ./coverage/index.html",
-    "lint": "ng lint && stylelint src/**/*.scss && prettier --check .",
-    "lint:fix": "ng lint --fix && stylelint --fix src/**/*.scss && prettier --write .",
+    "lint": "ng lint && stylelint **/*.scss && prettier --check .",
+    "lint:fix": "ng lint --fix && stylelint --fix **/*.scss && prettier --write .",
     "analyze": "ng build --stats-json --named-chunks && open-cli https://esbuild.github.io/analyze"
+  },
+  "lint-staged": {
+    "**/*.{ts,html}": [
+      "eslint --fix"
+    ],
+    "**/*.scss": [
+      "stylelint --fix"
+    ],
+    "*.{ts,js,json,md,yml,yaml}": [
+      "prettier --write"
+    ]
   },
   "private": true,
   "dependencies": {
@@ -50,12 +61,14 @@
     "@typescript-eslint/parser": "^7.2.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
     "jasmine-core": "~5.1.1",
     "karma": "~6.4.2",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage-istanbul-reporter": "~3.0.3",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
+    "lint-staged": "^16.4.0",
     "open-cli": "^9.0.0",
     "prettier": "^3.8.1",
     "stylelint": "^17.6.0",
