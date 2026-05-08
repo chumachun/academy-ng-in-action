@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User, UserService } from './services';
 import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
-import { NgIf, AsyncPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { UserComponent } from './components/user/user.component';
@@ -11,7 +11,7 @@ import { UserComponent } from './components/user/user.component';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [MatToolbar, NgIf, MatToolbarRow, MatButton, RouterLink, RouterLinkActive, UserComponent, RouterOutlet, AsyncPipe],
+  imports: [MatToolbar, MatToolbarRow, MatButton, RouterLink, RouterLinkActive, UserComponent, RouterOutlet, AsyncPipe],
 })
 export class AppComponent implements OnInit {
   user$: Observable<User | undefined>;

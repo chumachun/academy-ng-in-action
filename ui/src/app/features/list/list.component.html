@@ -1,8 +1,10 @@
 <mat-nav-list>
-  <ng-container *ngIf="users$ | async as users">
-    <mat-list-item *ngFor="let user of users | filterUser; user" [class.selected]="user.id === selected?.id" (click)="toggleUser(user)">
-      <app-avatar [name]="user.name"></app-avatar>
-      <span>{{ user.name }}</span>
-    </mat-list-item>
-  </ng-container>
+  @if (users$ | async; as users) {
+    @for (user of users | filterUser; track user) {
+      <mat-list-item [class.selected]="user.id === selected?.id" (click)="toggleUser(user)">
+        <app-avatar [name]="user.name"></app-avatar>
+        <span>{{ user.name }}</span>
+      </mat-list-item>
+    }
+  }
 </mat-nav-list>

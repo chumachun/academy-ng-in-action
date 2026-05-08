@@ -15,15 +15,19 @@
   </mat-card-header>
 
   <mat-card-content class="main-button-list">
-    <table *ngIf="items$ | async as items">
-      <tr>
-        <th>Id</th>
-        <th>Json Value</th>
-      </tr>
-      <tr *ngFor="let item of items">
-        <td>{{ item.id }}</td>
-        <td>{{ item.value }}</td>
-      </tr>
-    </table>
+    @if (items$ | async; as items) {
+      <table>
+        <tr>
+          <th>Id</th>
+          <th>Json Value</th>
+        </tr>
+        @for (item of items; track item) {
+          <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.value }}</td>
+          </tr>
+        }
+      </table>
+    }
   </mat-card-content>
 </mat-card>

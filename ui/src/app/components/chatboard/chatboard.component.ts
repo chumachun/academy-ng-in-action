@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ChatService, Message, User } from 'src/app/services';
-import { NgFor } from '@angular/common';
+
 import { ChatmessageComponent } from '../chatmessage/chatmessage.component';
 
 @Component({
   selector: 'app-chat-board',
   templateUrl: './chatboard.component.html',
   styleUrls: ['./chatboard.component.scss'],
-  imports: [NgFor, ChatmessageComponent],
+  imports: [ChatmessageComponent],
 })
 export class ChatboardComponent implements OnInit {
   @Input() user: User | undefined;

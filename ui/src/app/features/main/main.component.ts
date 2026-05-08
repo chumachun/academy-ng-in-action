@@ -3,7 +3,7 @@ import { Observable, map } from 'rxjs';
 import { UserService, ChatService, User, Message } from 'src/app/services';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 
 interface Item {
   id: string;
@@ -14,7 +14,7 @@ interface Item {
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
-  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatButton, NgIf, NgFor, AsyncPipe],
+  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatButton, AsyncPipe],
 })
 export class MainComponent {
   items$: Observable<Item[]>;

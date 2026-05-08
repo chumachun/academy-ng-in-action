@@ -1,13 +1,15 @@
 <header>
   <mat-toolbar color="primary" class="navigation">
-    <mat-toolbar-row *ngIf="user$ | async">
-      <button mat-button routerLink="/profile" routerLinkActive="active" mat-list-item>Profile</button>
-      <button mat-button routerLink="/main" routerLinkActive="active" mat-list-item>Main</button>
-      <button mat-button routerLink="/chat" routerLinkActive="active" mat-list-item>Chat</button>
-      <button mat-button routerLink="/list" routerLinkActive="active" mat-list-item>List</button>
-      <span class="example-fill-remaining-space"></span>
-      <app-user></app-user>
-    </mat-toolbar-row>
+    @if (user$ | async) {
+      <mat-toolbar-row>
+        <button mat-button routerLink="/profile" routerLinkActive="active" mat-list-item>Profile</button>
+        <button mat-button routerLink="/main" routerLinkActive="active" mat-list-item>Main</button>
+        <button mat-button routerLink="/chat" routerLinkActive="active" mat-list-item>Chat</button>
+        <button mat-button routerLink="/list" routerLinkActive="active" mat-list-item>List</button>
+        <span class="example-fill-remaining-space"></span>
+        <app-user></app-user>
+      </mat-toolbar-row>
+    }
   </mat-toolbar>
 </header>
 

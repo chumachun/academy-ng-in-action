@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { map, Observable, zip } from 'rxjs';
 import { User, UserService } from 'src/app/services';
 import { MatNavList, MatListItem } from '@angular/material/list';
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { AvatarComponent } from '../../components/avatar/avatar.component';
 import { FilterUserPipe } from 'src/app/pipes';
 
@@ -10,7 +10,7 @@ import { FilterUserPipe } from 'src/app/pipes';
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  imports: [MatNavList, NgIf, NgFor, MatListItem, AvatarComponent, AsyncPipe, FilterUserPipe],
+  imports: [MatNavList, MatListItem, AvatarComponent, AsyncPipe, FilterUserPipe],
 })
 export class ListComponent implements OnInit {
   @Input() user: User | undefined;

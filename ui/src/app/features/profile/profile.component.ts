@@ -5,14 +5,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User, UserService } from 'src/app/services';
 import { ProfileParams } from './profile-routing.module';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
-import { NgIf, AsyncPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ListComponent } from '../list/list.component';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
-  imports: [MatCard, MatCardHeader, MatCardTitle, NgIf, MatCardContent, ListComponent, AsyncPipe],
+  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, ListComponent, AsyncPipe],
 })
 export class ProfileComponent implements OnInit {
   currentProfile$: Observable<User | undefined>;
