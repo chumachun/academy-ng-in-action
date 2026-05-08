@@ -9,20 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeaturesModule } from './features';
 
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    MatButtonModule,
-    AppRoutingModule,
-    FeaturesModule,
-    MatToolbarModule,
-    ComponentsModule,
-    HttpClientModule,
-  ],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-})
+@NgModule({ declarations: [AppComponent],
+    bootstrap: [AppComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA], imports: [BrowserModule,
+        MatButtonModule,
+        AppRoutingModule,
+        FeaturesModule,
+        MatToolbarModule,
+        ComponentsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
