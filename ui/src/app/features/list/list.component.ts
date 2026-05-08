@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input, inject } from '@angular/core';
+import { Component, OnInit, Input, inject, output } from '@angular/core';
 import { map, Observable, zip } from 'rxjs';
 import { User, UserService } from 'src/app/services';
 import { MatNavList, MatListItem } from '@angular/material/list';
@@ -18,7 +18,7 @@ export class ListComponent implements OnInit {
   @Input() user: User | undefined;
   @Input() hideCurrentUser = false;
   @Input() selected?: User | null;
-  @Output() selectUser: EventEmitter<User | undefined> = new EventEmitter<User | undefined>();
+  readonly selectUser = output<User | undefined>();
   users$: Observable<User[]>;
 
   ngOnInit() {
