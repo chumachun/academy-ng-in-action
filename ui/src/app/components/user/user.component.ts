@@ -7,6 +7,7 @@ import { User, UserService } from 'src/app/services';
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
+  standalone: false,
 })
 export class UserComponent {
   user$: Observable<User | undefined>;

@@ -8,6 +8,7 @@ import { User, UserService } from 'src/app/services';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  standalone: false,
 })
 export class LoginComponent {
   name: string | null;

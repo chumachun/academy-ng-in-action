@@ -5,6 +5,7 @@ import { ChatService, Message, User } from 'src/app/services';
   selector: 'app-chat-board',
   templateUrl: './chatboard.component.html',
   styleUrls: ['./chatboard.component.scss'],
+  standalone: false,
 })
 export class ChatboardComponent implements OnInit {
   @Input() user: User | undefined;

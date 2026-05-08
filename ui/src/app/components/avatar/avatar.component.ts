@@ -8,6 +8,7 @@ import { createAvatar } from '@dicebear/core';
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class AvatarComponent {
 

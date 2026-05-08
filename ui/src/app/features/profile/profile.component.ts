@@ -9,6 +9,7 @@ import { ProfileParams } from './profile-routing.module';
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
+  standalone: false,
 })
 export class ProfileComponent implements OnInit {
   currentProfile$: Observable<User | undefined>;

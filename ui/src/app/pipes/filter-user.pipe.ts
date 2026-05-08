@@ -5,6 +5,7 @@ const filterUser = ({ name: testUserName }: User) => ({ name }: User) => name.lo
 
 @Pipe({
   name: 'filterUser',
+  standalone: false,
 })
 export class FilterUserPipe implements PipeTransform {
   transform(users: User[], args?: User): User[] | null {

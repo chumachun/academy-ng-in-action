@@ -6,6 +6,7 @@ import { AvatarComponent } from './avatar.component';
 @Component({
   selector: 'app-test-cmpt',
   template: '<app-avatar [name]="name"></app-avatar>',
+  standalone: false,
 })
 class TestComponent {
   name: string;
