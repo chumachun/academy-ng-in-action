@@ -1,31 +1,30 @@
 .chat {
+  display: flex;
+
+  .chat-content {
     display: flex;
+    flex-direction: row;
 
-    .chat-content{
+    .chat-users {
+      width: 20%;
+      padding-right: 2rem;
+    }
+
+    .chat-list {
+      flex: 2;
+    }
+
+    .chat-message {
       display: flex;
-      flex-direction: row;
 
-      .chat-users{
-        width: 20%;
-        padding-right: 2rem;
-      }
-
-      .chat-list{
+      mat-form-field {
         flex: 2;
       }
 
-      .chat-message{
-        display: flex;
-
-        mat-form-field{
-          flex: 2;
-        }
-
-        button{
-          margin-left: 3rem;
-          align-self: center;
-        }
+      button {
+        margin-left: 3rem;
+        align-self: center;
       }
     }
-
+  }
 }

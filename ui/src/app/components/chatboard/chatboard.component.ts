@@ -4,28 +4,28 @@ import { NgFor } from '@angular/common';
 import { ChatmessageComponent } from '../chatmessage/chatmessage.component';
 
 @Component({
-    selector: 'app-chat-board',
-    templateUrl: './chatboard.component.html',
-    styleUrls: ['./chatboard.component.scss'],
-    imports: [NgFor, ChatmessageComponent],
+  selector: 'app-chat-board',
+  templateUrl: './chatboard.component.html',
+  styleUrls: ['./chatboard.component.scss'],
+  imports: [NgFor, ChatmessageComponent],
 })
 export class ChatboardComponent implements OnInit {
   @Input() user: User | undefined;
   private messages: Message[] = [];
 
-  constructor(private service: ChatService) { }
+  constructor(private service: ChatService) {}
 
   ngOnInit() {
-    this.service
-      .messages(this.user)
-      .subscribe(m => this.messages = m);
+    this.service.messages(this.user).subscribe(m => (this.messages = m));
   }
 
   get sortedMessages() {
     return this.messages
-      .concat(this.service.receivedMessages.filter(m => m.sender === this.user?.name
-        || m.receiver === this.user?.name
-        || (!m.receiver && m.sender !== this.user?.name)))
+      .concat(
+        this.service.receivedMessages.filter(
+          m => m.sender === this.user?.name || m.receiver === this.user?.name || (!m.receiver && m.sender !== this.user?.name),
+        ),
+      )
       .sort((a: Message, b: Message) => a.date.getTime() - b.date.getTime());
   }
 }

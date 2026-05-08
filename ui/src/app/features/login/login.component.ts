@@ -11,20 +11,10 @@ import { MatButton } from '@angular/material/button';
 import { ListComponent } from '../list/list.component';
 
 @Component({
-    selector: 'app-login',
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss'],
-    imports: [
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        FormsModule,
-        MatFormField,
-        MatInput,
-        MatButton,
-        ListComponent,
-    ],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
+  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, FormsModule, MatFormField, MatInput, MatButton, ListComponent],
 })
 export class LoginComponent {
   name: string | null;
@@ -47,16 +37,14 @@ export class LoginComponent {
   register() {
     const user: User = { name: this.name ?? '' };
 
-    this.user
-      .add(user)
-      .subscribe({
-        complete: async () => await this.navigate(),
-        error: error => {
-          console.log(error);
-          this.showError(`User could not be added: ${error}`);
-          this.name = null;
-        },
-      });
+    this.user.add(user).subscribe({
+      complete: async () => await this.navigate(),
+      error: error => {
+        console.log(error);
+        this.showError(`User could not be added: ${error}`);
+        this.name = null;
+      },
+    });
   }
 
   async login(user: User | undefined) {

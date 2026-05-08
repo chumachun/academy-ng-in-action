@@ -1,14 +1,14 @@
 $border-width: 5px;
 
-app-avatar{
-  margin-right: .5rem;
+app-avatar {
+  margin-right: 0.5rem;
 }
 
-mat-list-item{
+mat-list-item {
   border-left: $border-width solid transparent;
 }
 
-.selected{
+.selected {
   border-left: $border-width solid blue;
   border-radius: 3px;
 }

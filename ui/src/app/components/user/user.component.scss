@@ -1,14 +1,14 @@
 .profile-button-content {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .user-name {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 :host {
-    display: flex;
+  display: flex;
 }
 
 button {
@@ -16,7 +16,7 @@ button {
 }
 
 .spacer {
-    margin: 0 6px;
-    width: 1px;
-    background-color: gray;
+  margin: 0 6px;
+  width: 1px;
+  background-color: gray;
 }

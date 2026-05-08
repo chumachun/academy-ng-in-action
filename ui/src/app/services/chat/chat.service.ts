@@ -23,16 +23,11 @@ export class ChatService {
     .build();
 
   constructor(private readonly http: HttpClient) {
-    this.connection.on(
-      'messageReceived',
-      (message: MessageDto) => this.receivedMessages.push(mapMessage(message)),
-    );
+    this.connection.on('messageReceived', (message: MessageDto) => this.receivedMessages.push(mapMessage(message)));
   }
 
   async openHub() {
-    await this.connection
-      .start()
-      .catch(error => console.error(error));
+    await this.connection.start().catch(error => console.error(error));
   }
 
   async closeHub() {
@@ -41,27 +36,19 @@ export class ChatService {
   }
 
   messages(user: User | undefined): Observable<Message[]> {
-    return this.http
-      .get<MessageDto[]>(`${MESSAGES_ENDPOINT}/user/${user?.name}`)
-      .pipe(map(mapMessages));
+    return this.http.get<MessageDto[]>(`${MESSAGES_ENDPOINT}/user/${user?.name}`).pipe(map(mapMessages));
   }
 
   list(): Observable<Message[]> {
-    return this.http
-      .get<MessageDto[]>(MESSAGES_ENDPOINT)
-      .pipe(map(mapMessages));
+    return this.http.get<MessageDto[]>(MESSAGES_ENDPOINT).pipe(map(mapMessages));
   }
 
   add(message: Message): Observable<Message> {
-    this.connection
-      .send('sendMessage', message)
-      .catch(error => console.error(error));
+    this.connection.send('sendMessage', message).catch(error => console.error(error));
 
-    return this.http
-      .post<MessageDto>(MESSAGES_ENDPOINT, message)
-      .pipe(
-        tap(({ id }) => console.log('ChatService.add', { ...message, id })),
-        map(mapMessage),
-      );
+    return this.http.post<MessageDto>(MESSAGES_ENDPOINT, message).pipe(
+      tap(({ id }) => console.log('ChatService.add', { ...message, id })),
+      map(mapMessage),
+    );
   }
 }

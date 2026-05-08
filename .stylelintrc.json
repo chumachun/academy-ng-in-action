@@ -1,0 +1,15 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-standard-scss"],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "scss/at-rule-no-unknown": true,
+    "selector-pseudo-element-no-unknown": null,
+    "selector-not-notation": "simple",
+    "no-descending-specificity": null,
+    "selector-class-pattern": null,
+    "selector-id-pattern": null,
+    "custom-property-pattern": null,
+    "font-family-no-missing-generic-family-keyword": null,
+    "font-family-name-quotes": null
+  }
+}

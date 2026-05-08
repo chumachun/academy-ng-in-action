@@ -8,14 +8,6 @@ import { LoginModule } from './login';
 import { ComponentsModule } from '../components';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MainModule,
-    ListModule,
-    ProfileModule,
-    ChatModule,
-    LoginModule,
-    ComponentsModule,
-  ],
+  imports: [CommonModule, MainModule, ListModule, ProfileModule, ChatModule, LoginModule, ComponentsModule],
 })
-export class FeaturesModule { }
+export class FeaturesModule {}

@@ -11,14 +11,10 @@ describe(ListComponent.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [ListComponent,
-        FilterUserPipe],
-    providers: [
-        { provide: UserService, useClass: MockUserService },
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-})
-      .compileComponents();
+      imports: [ListComponent, FilterUserPipe],
+      providers: [{ provide: UserService, useClass: MockUserService }],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;

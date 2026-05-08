@@ -17,9 +17,8 @@ if (environment.production) {
 defineTi8mCustomComponents();
 
 bootstrapApplication(AppComponent, {
-    providers: [
-        importProvidersFrom(BrowserModule, MatButtonModule, AppRoutingModule, FeaturesModule, MatToolbarModule, ComponentsModule),
-        provideHttpClient(withInterceptorsFromDi()),
-    ],
-})
-  .catch(err => console.log(err));
+  providers: [
+    importProvidersFrom(BrowserModule, MatButtonModule, AppRoutingModule, FeaturesModule, MatToolbarModule, ComponentsModule),
+    provideHttpClient(withInterceptorsFromDi()),
+  ],
+}).catch(err => console.log(err));

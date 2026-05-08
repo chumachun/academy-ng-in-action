@@ -17,13 +17,10 @@ describe(UserComponent.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [RouterTestingModule, UserComponent],
-    providers: [
-        { provide: UserService, useClass: MockUserService },
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-})
-      .compileComponents();
+      imports: [RouterTestingModule, UserComponent],
+      providers: [{ provide: UserService, useClass: MockUserService }],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UserComponent);
     component = fixture.componentInstance;

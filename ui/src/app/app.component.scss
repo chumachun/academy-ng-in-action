@@ -1,13 +1,13 @@
-.navigation{
-    display: flex;
+.navigation {
+  display: flex;
 
-    a{
-        margin-right: 1rem;
-    }
+  a {
+    margin-right: 1rem;
+  }
 }
 
-main{
-    padding: 1rem;
+main {
+  padding: 1rem;
 }
 
 .example-fill-remaining-space {
@@ -15,5 +15,5 @@ main{
 }
 
 .active {
-  background: rgba(0,0,0,.2);
+  background: rgb(0 0 0 / 20%);
 }

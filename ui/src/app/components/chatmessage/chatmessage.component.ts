@@ -4,10 +4,10 @@ import { AvatarComponent } from '../avatar/avatar.component';
 import { DatePipe } from '@angular/common';
 
 @Component({
-    selector: 'app-chatmessage',
-    templateUrl: './chatmessage.component.html',
-    styleUrls: ['./chatmessage.component.scss'],
-    imports: [AvatarComponent, DatePipe],
+  selector: 'app-chatmessage',
+  templateUrl: './chatmessage.component.html',
+  styleUrls: ['./chatmessage.component.scss'],
+  imports: [AvatarComponent, DatePipe],
 })
 export class ChatmessageComponent {
   @Input() message: Message;

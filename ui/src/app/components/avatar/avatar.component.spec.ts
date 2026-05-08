@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
 import { AvatarComponent } from './avatar.component';
 
 @Component({
-    selector: 'app-test-cmpt',
-    template: '<app-avatar [name]="name"></app-avatar>',
+  selector: 'app-test-cmpt',
+  template: '<app-avatar [name]="name"></app-avatar>',
 })
 class TestComponent {
   name: string;
@@ -16,9 +16,8 @@ describe(AvatarComponent.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [TestComponent, AvatarComponent],
-})
-      .compileComponents();
+      imports: [TestComponent, AvatarComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TestComponent);
     component = fixture.componentInstance;

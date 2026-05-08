@@ -15,19 +15,13 @@ describe(LoginComponent.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [
-        FormsModule,
-        ChatModule,
-        RouterTestingModule.withRoutes(routes),
-        LoginComponent,
-    ],
-    providers: [
+      imports: [FormsModule, ChatModule, RouterTestingModule.withRoutes(routes), LoginComponent],
+      providers: [
         { provide: UserService, useClass: MockUserService },
         { provide: MatSnackBar, useValue: {} },
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-})
-      .compileComponents();
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;

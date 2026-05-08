@@ -7,29 +7,33 @@ import { ChatboardComponent } from './chatboard.component';
 
 const user: User = { name: 'Andi' };
 
-const mockMessages: Message[] = [{
-  text: 'test1',
-  sender: user.name,
-  receiver: 'test2',
-  date: new Date('2024-07-21'),
-},
-{
-  text: 'test2',
-  sender: 'test2',
-  receiver: user.name,
-  date: new Date('2024-07-20'),
-}];
+const mockMessages: Message[] = [
+  {
+    text: 'test1',
+    sender: user.name,
+    receiver: 'test2',
+    date: new Date('2024-07-21'),
+  },
+  {
+    text: 'test2',
+    sender: 'test2',
+    receiver: user.name,
+    date: new Date('2024-07-20'),
+  },
+];
 
-const mockReceivedMessages: Message[] = [{
-  text: 'test3',
-  sender: 'test3',
-  receiver: user.name,
-  date: new Date('2024-07-19'),
-}];
+const mockReceivedMessages: Message[] = [
+  {
+    text: 'test3',
+    sender: 'test3',
+    receiver: user.name,
+    date: new Date('2024-07-19'),
+  },
+];
 
 export class MockChatService {
-  openHub = () => { };
-  closeHub = () => { };
+  openHub = () => {};
+  closeHub = () => {};
   messages = (): Observable<Message[]> => of(mockMessages);
   receivedMessages: Message[] = mockReceivedMessages;
 }
@@ -48,14 +52,15 @@ describe(ChatboardComponent.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [ChatboardComponent],
-    providers: [{
-            provide: ChatService,
-            useClass: MockChatService,
-        }],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-})
-      .compileComponents();
+      imports: [ChatboardComponent],
+      providers: [
+        {
+          provide: ChatService,
+          useClass: MockChatService,
+        },
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
     fixture = TestBed.createComponent(ChatboardComponent);
     component = fixture.componentInstance;
 

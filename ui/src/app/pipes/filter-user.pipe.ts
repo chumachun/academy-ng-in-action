@@ -1,7 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { User } from '../services';
 
-const filterUser = ({ name: testUserName }: User) => ({ name }: User) => name.localeCompare(testUserName);
+const filterUser =
+  ({ name: testUserName }: User) =>
+  ({ name }: User) =>
+    name.localeCompare(testUserName);
 
 @Pipe({ name: 'filterUser' })
 export class FilterUserPipe implements PipeTransform {

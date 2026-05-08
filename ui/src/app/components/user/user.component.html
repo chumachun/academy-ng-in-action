@@ -1,16 +1,10 @@
 <ng-container *ngIf="user$ | async as user">
-  <button mat-button
-          class="mdc-button"
-          [routerLink]="['profile', user?.name]">
+  <button mat-button class="mdc-button" [routerLink]="['profile', user?.name]">
     <div class="profile-button-content">
-      <app-avatar [name]="user?.name ?? ''"
-                  size="small"></app-avatar>
-      <div class="user-name">{{ user?.name}}</div>
+      <app-avatar [name]="user?.name ?? ''" size="small"></app-avatar>
+      <div class="user-name">{{ user?.name }}</div>
     </div>
   </button>
   <div class="spacer"></div>
-  <button mat-button
-          class="mdc-button"
-          title="Logout"
-          (click)="logout()">Logout</button>
+  <button mat-button class="mdc-button" title="Logout" (click)="logout()">Logout</button>
 </ng-container>

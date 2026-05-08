@@ -1,5 +1,5 @@
 export const HairColors = ['', 'black', 'blonde', 'red', 'darkbrown'] as const;
-export type HairColor = typeof HairColors[number];
+export type HairColor = (typeof HairColors)[number];
 
 export interface UserDto {
   id: string;

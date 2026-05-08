@@ -4,24 +4,23 @@ import { property } from 'lit/decorators.js';
 // Extend the LitElement base class
 // export the class, so it can be imported where it is needed
 export class Ti8mLogoCustomComponent extends LitElement {
-
   static styles = css`
     :host {
-          float: left;
-          padding: 0 32px;
-          cursor: pointer;
-      }
+      float: left;
+      padding: 0 32px;
+      cursor: pointer;
+    }
 
-      a{
-          height: 55px;
-          display: inline-block;
-      }
+    a {
+      height: 55px;
+      display: inline-block;
+    }
 
-      img{
-          max-height: 60%;
-          vertical-align: middle;
-          max-width: 100%;
-      }
+    img {
+      max-height: 60%;
+      vertical-align: middle;
+      max-width: 100%;
+    }
   `;
 
   @property({ type: String }) imgSrc;
@@ -34,7 +33,7 @@ export class Ti8mLogoCustomComponent extends LitElement {
   render() {
     return html`
       <a>
-        <img src="${this.imgSrc}" alt="">
+        <img src="${this.imgSrc}" alt="" />
       </a>
     `;
   }

@@ -10,21 +10,21 @@ import { MatInput } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 
 @Component({
-    selector: 'app-chat',
-    templateUrl: './chat.component.html',
-    styleUrls: ['./chat.component.scss'],
-    imports: [
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        ListComponent,
-        ChatboardComponent,
-        FormsModule,
-        MatFormField,
-        MatInput,
-        MatButton,
-    ],
+  selector: 'app-chat',
+  templateUrl: './chat.component.html',
+  styleUrls: ['./chat.component.scss'],
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    ListComponent,
+    ChatboardComponent,
+    FormsModule,
+    MatFormField,
+    MatInput,
+    MatButton,
+  ],
 })
 export class ChatComponent implements OnInit, OnDestroy {
   text: string;
@@ -34,12 +34,13 @@ export class ChatComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   receiver?: User;
 
-  constructor(private userService: UserService, private chatService: ChatService) { }
+  constructor(
+    private userService: UserService,
+    private chatService: ChatService,
+  ) {}
 
   async ngOnInit() {
-    this.subscription = this.userService
-      .user()
-      .subscribe(user => this.user = user);
+    this.subscription = this.userService.user().subscribe(user => (this.user = user));
 
     await this.chatService.openHub();
   }
@@ -67,9 +68,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   private sendMessage(message: Message) {
-    this.chatService
-      .add(message)
-      .subscribe();
+    this.chatService.add(message).subscribe();
   }
 
   private reset() {

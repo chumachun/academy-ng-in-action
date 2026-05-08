@@ -6,42 +6,30 @@ import { MatButton } from '@angular/material/button';
 import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 
 interface Item {
-  id: string,
-  value: string
+  id: string;
+  value: string;
 }
 
 @Component({
-    selector: 'app-main',
-    templateUrl: './main.component.html',
-    styleUrls: ['./main.component.scss'],
-    imports: [
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        MatButton,
-        NgIf,
-        NgFor,
-        AsyncPipe,
-    ],
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss'],
+  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatButton, NgIf, NgFor, AsyncPipe],
 })
 export class MainComponent {
   items$: Observable<Item[]>;
 
-  constructor(readonly  userService: UserService, readonly chatService: ChatService) { }
+  constructor(
+    readonly userService: UserService,
+    readonly chatService: ChatService,
+  ) {}
 
   listUsers() {
-    this.items$ = this.userService.list()
-    .pipe(
-      map(this.mapItems),
-    );
+    this.items$ = this.userService.list().pipe(map(this.mapItems));
   }
 
   listMessages() {
-    this.items$ = this.chatService.list()
-    .pipe(
-      map(this.mapItems),
-    );
+    this.items$ = this.chatService.list().pipe(map(this.mapItems));
   }
 
   mapItems(items: User[] | Message[]): Item[] {

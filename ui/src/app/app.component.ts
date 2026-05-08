@@ -8,25 +8,15 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { UserComponent } from './components/user/user.component';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    imports: [
-        MatToolbar,
-        NgIf,
-        MatToolbarRow,
-        MatButton,
-        RouterLink,
-        RouterLinkActive,
-        UserComponent,
-        RouterOutlet,
-        AsyncPipe,
-    ],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  imports: [MatToolbar, NgIf, MatToolbarRow, MatButton, RouterLink, RouterLinkActive, UserComponent, RouterOutlet, AsyncPipe],
 })
 export class AppComponent implements OnInit {
   user$: Observable<User | undefined>;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.user$ = this.userService.user();

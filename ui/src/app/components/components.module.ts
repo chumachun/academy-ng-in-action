@@ -8,23 +8,11 @@ import { ChatmessageComponent } from './chatmessage';
 import { AvatarComponent } from './avatar';
 import { UserComponent } from './user';
 
-const components = [
-  ChatboardComponent,
-  ChatmessageComponent,
-  AvatarComponent,
-  UserComponent,
-];
+const components = [ChatboardComponent, ChatmessageComponent, AvatarComponent, UserComponent];
 
 @NgModule({
-    imports: [
-        CommonModule,
-        RouterModule,
-        MatListModule,
-        MatSelectModule,
-        ...components,
-    ],
-    exports: components,
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [CommonModule, RouterModule, MatListModule, MatSelectModule, ...components],
+  exports: components,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class ComponentsModule {
-}
+export class ComponentsModule {}

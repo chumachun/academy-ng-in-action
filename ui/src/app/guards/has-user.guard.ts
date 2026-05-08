@@ -7,10 +7,8 @@ import { UserService } from '../services';
 export const hasUserGuard: CanActivateFn = () => {
   const userService = inject(UserService);
 
-  return userService
-    .user()
-    .pipe(
-      first(),
-      map(user => !!user),
-    );
+  return userService.user().pipe(
+    first(),
+    map(user => !!user),
+  );
 };

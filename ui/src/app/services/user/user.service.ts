@@ -31,24 +31,22 @@ export class UserService {
   }
 
   add(user: User): Observable<User> {
-    return this
-      .userExists(user)
-      .pipe(switchMap(exists => exists
-        ? throwError(() => new Error(`User '${user.name}' already exists.`))
-        : this.http
-          .post<UserDto>(USER_ENDPOINT, user)
-          .pipe(
-            tap(({ id }) => this.set({ ...user, id })),
-            map(mapUser)),
-      ));
+    return this.userExists(user).pipe(
+      switchMap(exists =>
+        exists
+          ? throwError(() => new Error(`User '${user.name}' already exists.`))
+          : this.http.post<UserDto>(USER_ENDPOINT, user).pipe(
+              tap(({ id }) => this.set({ ...user, id })),
+              map(mapUser),
+            ),
+      ),
+    );
   }
 
   // Exercise 4: Add update function here.
 
   list(): Observable<User[]> {
-    return this.http
-      .get<UserDto[]>(USER_ENDPOINT)
-      .pipe(map(users => users.map(mapUser)));
+    return this.http.get<UserDto[]>(USER_ENDPOINT).pipe(map(users => users.map(mapUser)));
   }
 
   user(): Observable<User | undefined> {
@@ -56,8 +54,6 @@ export class UserService {
   }
 
   private userExists(user: User): Observable<boolean> {
-    return this
-      .list()
-      .pipe(map(users => users.some(u => u.name.toUpperCase() === user.name.toUpperCase())));
+    return this.list().pipe(map(users => users.some(u => u.name.toUpperCase() === user.name.toUpperCase())));
   }
 }

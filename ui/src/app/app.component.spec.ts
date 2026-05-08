@@ -10,17 +10,11 @@ describe(AppComponent.name, () => {
   let component: AppComponent;
 
   beforeEach(() => {
-
     TestBed.configureTestingModule({
-    imports: [
-        RouterTestingModule,
-        AppComponent,
-    ],
-    providers: [
-        { provide: UserService, useClass: MockUserService },
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-}).compileComponents();
+      imports: [RouterTestingModule, AppComponent],
+      providers: [{ provide: UserService, useClass: MockUserService }],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.debugElement.componentInstance;

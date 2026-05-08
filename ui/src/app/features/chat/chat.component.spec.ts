@@ -12,14 +12,13 @@ describe(ChatComponent.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [FormsModule, ChatComponent],
-    providers: [
+      imports: [FormsModule, ChatComponent],
+      providers: [
         { provide: UserService, useClass: MockUserService },
         { provide: ChatService, useClass: MockChatService },
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-})
-      .compileComponents();
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ChatComponent);
     component = fixture.componentInstance;

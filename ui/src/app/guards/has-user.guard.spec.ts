@@ -13,7 +13,8 @@ describe(hasUserGuard.name, () => {
     TestBed.configureTestingModule({
       providers: [
         {
-          provide: UserService, useValue: {
+          provide: UserService,
+          useValue: {
             user() {
               return userSubject;
             },

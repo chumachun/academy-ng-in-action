@@ -1,20 +1,12 @@
 <div class="profile">
   <mat-card class="large-centred-content">
     <mat-card-header>
-      <mat-card-title color="primary">
-        Profile
-      </mat-card-title>
+      <mat-card-title color="primary"> Profile </mat-card-title>
     </mat-card-header>
-    <mat-card-content
-      class="profile-content"
-      *ngIf="{ currentProfile: currentProfile$ | async } as observable"
-    >
+    <mat-card-content class="profile-content" *ngIf="{ currentProfile: currentProfile$ | async } as observable">
       <div class="profile-users">
         View Profile:
-        <app-list
-          [selected]="observable.currentProfile"
-          (selectUser)="selectProfile($event)"
-        ></app-list>
+        <app-list [selected]="observable.currentProfile" (selectUser)="selectProfile($event)"></app-list>
       </div>
       <div class="profile-view" *ngIf="observable.currentProfile">
         <!--  Exercise 1: Use new created ProfileViewComponent and pass currentProfile as parameter. -->

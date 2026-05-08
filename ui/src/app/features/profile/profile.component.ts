@@ -9,18 +9,10 @@ import { NgIf, AsyncPipe } from '@angular/common';
 import { ListComponent } from '../list/list.component';
 
 @Component({
-    selector: 'app-profile',
-    templateUrl: './profile.component.html',
-    styleUrls: ['./profile.component.scss'],
-    imports: [
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        NgIf,
-        MatCardContent,
-        ListComponent,
-        AsyncPipe,
-    ],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss'],
+  imports: [MatCard, MatCardHeader, MatCardTitle, NgIf, MatCardContent, ListComponent, AsyncPipe],
 })
 export class ProfileComponent implements OnInit {
   currentProfile$: Observable<User | undefined>;
@@ -29,17 +21,14 @@ export class ProfileComponent implements OnInit {
     private userService: UserService,
     private route: ActivatedRoute,
     private router: Router,
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.currentProfile$ = from(this.userService.list())
-      .pipe(switchMap(list => this.getCurrentFromList(list)));
+    this.currentProfile$ = from(this.userService.list()).pipe(switchMap(list => this.getCurrentFromList(list)));
   }
 
   private getCurrentFromList(list: User[]) {
-    return this.route.params.pipe(
-      map(params => list.find(u => u.name === (params as ProfileParams)?.username)),
-    );
+    return this.route.params.pipe(map(params => list.find(u => u.name === (params as ProfileParams)?.username)));
   }
 
   async selectProfile(user: User | undefined) {

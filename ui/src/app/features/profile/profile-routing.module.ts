@@ -6,7 +6,7 @@ import { hasUserGuard } from 'src/app/guards';
 export interface ProfileParams extends Params {
   username?: string;
 }
-type UserNameParam = keyof Pick<ProfileParams, 'username'>
+type UserNameParam = keyof Pick<ProfileParams, 'username'>;
 
 const userNameParam: UserNameParam = 'username';
 
@@ -28,4 +28,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ProfileRoutingModule { }
+export class ProfileRoutingModule {}

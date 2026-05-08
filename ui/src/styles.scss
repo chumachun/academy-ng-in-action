@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material' as mat;
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 @import url('//fonts.googleapis.com/icon?family=Material+Icons');
 
 @include mat.all-component-typographies();
@@ -21,25 +21,28 @@ body {
   margin: 0;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-weight: normal;
 }
 
-.full-width{
+.full-width {
   width: 100%;
 }
 
-.centred-content{
+.centred-content {
   width: 30%;
   margin: 20vh auto;
 }
 
-.large-centred-content{
+.large-centred-content {
   width: 80%;
   margin: 5vh auto;
 }
 
-.mat-mdc-card > .mat-mdc-card-header> :first-child{
+.mat-mdc-card > .mat-mdc-card-header > :first-child {
   margin: -16px -16px 16px -16px;
   padding: 16px;
   width: 100%;
@@ -47,12 +50,12 @@ h1, h2, h3, h4 {
   font-weight: bold;
 }
 
-.mat-mdc-card-title{
+.mat-mdc-card-title {
   font-weight: bold;
   color: white;
 }
 
-.mat-mdc-card-content{
+.mat-mdc-card-content {
   padding-top: 16px;
 }
 

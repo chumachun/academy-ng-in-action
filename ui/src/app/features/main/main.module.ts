@@ -7,12 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        MainRoutingModule,
-        MatCardModule,
-        MatButtonModule,
-        MainComponent,
-    ],
+  imports: [CommonModule, MainRoutingModule, MatCardModule, MatButtonModule, MainComponent],
 })
-export class MainModule { }
+export class MainModule {}

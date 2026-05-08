@@ -1,17 +1,17 @@
-:host{
+:host {
   display: block;
 }
 
-.chat-message-container.sent{
+.chat-message-container.sent {
   flex-direction: row-reverse;
 }
 
-.chat-message-container{
+.chat-message-container {
   display: flex;
   flex-direction: row;
   padding: 1rem 1rem 1rem 0;
 
-  .chat-message{
+  .chat-message {
     flex: 2;
     background-color: #f8f8f8;
     padding: 1rem;
@@ -28,22 +28,19 @@
   &.sent .chat-message {
     background-color: rgba(0, 255, 159, 0.37);
   }
-  header{
+  header {
     display: flex;
     justify-content: space-between;
     width: 100%;
     font-size: smaller;
   }
 
-
-  main{
-    margin-top: .5rem;
+  main {
+    margin-top: 0.5rem;
     font-size: larger;
   }
-
-
 }
 
-.avatar{
+.avatar {
   margin: 0 1rem;
 }

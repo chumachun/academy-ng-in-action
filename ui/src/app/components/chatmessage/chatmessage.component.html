@@ -1,20 +1,17 @@
-<div [class.sent]="message.sender === current?.name"
-     [class.private]="message.receiver !== undefined"
-     class="chat-message-container">
+<div [class.sent]="message.sender === current?.name" [class.private]="message.receiver !== undefined" class="chat-message-container">
   <div class="avatar">
     <app-avatar [name]="message.sender"></app-avatar>
   </div>
   <div class="chat-message">
     <header>
       <div>
-        <span>From: {{message.sender}}; </span>
-        <span>Receiver: {{message.receiver ?? 'All'}}</span>
+        <span>From: {{ message.sender }}; </span>
+        <span>Receiver: {{ message.receiver ?? 'All' }}</span>
       </div>
-      <span class="date">{{message.date | date:'long'}}</span>
+      <span class="date">{{ message.date | date: 'long' }}</span>
     </header>
     <main>
-      {{message.text}}
+      {{ message.text }}
     </main>
   </div>
-
 </div>

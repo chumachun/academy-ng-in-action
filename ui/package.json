@@ -8,8 +8,8 @@
     "build": "ng build",
     "test": "ng test",
     "test:cov": "ng test --watch=false --code-coverage=true && start ./coverage/index.html",
-    "lint": "ng lint && stylelint projects/**/*.scss && prettier --check .",
-    "lint:fix": "ng lint --fix && stylelint --fix projects/**/*.scss && prettier --write .",
+    "lint": "ng lint && stylelint src/**/*.scss && prettier --check .",
+    "lint:fix": "ng lint --fix && stylelint --fix src/**/*.scss && prettier --write .",
     "analyze": "ng build --stats-json --named-chunks && open-cli https://esbuild.github.io/analyze"
   },
   "private": true,
@@ -49,6 +49,7 @@
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "eslint": "^8.57.0",
+    "eslint-config-prettier": "^10.1.8",
     "jasmine-core": "~5.1.1",
     "karma": "~6.4.2",
     "karma-chrome-launcher": "~3.2.0",
@@ -58,6 +59,8 @@
     "open-cli": "^9.0.0",
     "prettier": "^3.8.1",
     "stylelint": "^17.6.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-config-standard-scss": "^17.0.0",
     "typescript": "~5.5.4",
     "webpack-bundle-analyzer": "^4.10.1"
   }
