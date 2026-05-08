@@ -6,10 +6,10 @@
     <mat-card-content class="chat-content">
       <div class="chat-users">
         Select Receiver:
-        <app-list (selectUser)="selectReceiver($event)" [user]="user" [hideCurrentUser]="true"></app-list>
+        <app-list (selectUser)="selectReceiver($event)" [user]="user" [hideCurrentUser]="true" />
       </div>
       <div class="chat-list">
-        <app-chat-board [user]="user"></app-chat-board>
+        <app-chat-board [user]="user" />
         <form novalidate #chatForm="ngForm">
           <div class="chat-message">
             <mat-form-field>

@@ -2,7 +2,7 @@
   @if (users$ | async; as users) {
     @for (user of users | filterUser; track user) {
       <mat-list-item [class.selected]="user.id === selected?.id" (click)="toggleUser(user)">
-        <app-avatar [name]="user.name"></app-avatar>
+        <app-avatar [name]="user.name" />
         <span>{{ user.name }}</span>
       </mat-list-item>
     }

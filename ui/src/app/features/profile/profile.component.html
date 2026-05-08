@@ -7,7 +7,7 @@
       <mat-card-content class="profile-content">
         <div class="profile-users">
           View Profile:
-          <app-list [selected]="observable.currentProfile" (selectUser)="selectProfile($event)"></app-list>
+          <app-list [selected]="observable.currentProfile" (selectUser)="selectProfile($event)" />
         </div>
         @if (observable.currentProfile) {
           <div class="profile-view">

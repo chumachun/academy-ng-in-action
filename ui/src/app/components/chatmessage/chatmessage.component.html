@@ -1,6 +1,6 @@
 <div [class.sent]="message.sender === current?.name" [class.private]="message.receiver !== undefined" class="chat-message-container">
   <div class="avatar">
-    <app-avatar [name]="message.sender"></app-avatar>
+    <app-avatar [name]="message.sender" />
   </div>
   <div class="chat-message">
     <header>
