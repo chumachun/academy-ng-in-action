@@ -9,13 +9,13 @@ describe(MainComponent.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MainComponent],
-      providers: [
+    imports: [MainComponent],
+    providers: [
         { provide: ChatService, useValue: {} },
         { provide: UserService, useValue: {} },
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
       .compileComponents();
 
     fixture = TestBed.createComponent(MainComponent);

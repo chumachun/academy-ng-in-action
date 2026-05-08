@@ -8,16 +8,14 @@ import { FilterUserPipe } from 'src/app/pipes';
 import { ComponentsModule } from 'src/app/components';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ListRoutingModule,
-    MatListModule,
-    ComponentsModule,
-  ],
-  declarations: [
-    ListComponent,
-    FilterUserPipe,
-  ],
-  exports: [ListComponent],
+    imports: [
+        CommonModule,
+        ListRoutingModule,
+        MatListModule,
+        ComponentsModule,
+        ListComponent,
+        FilterUserPipe,
+    ],
+    exports: [ListComponent],
 })
 export class ListModule { }

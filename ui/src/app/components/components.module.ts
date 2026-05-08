@@ -16,15 +16,15 @@ const components = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    MatListModule,
-    MatSelectModule,
-  ],
-  declarations: components,
-  exports: components,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [
+        CommonModule,
+        RouterModule,
+        MatListModule,
+        MatSelectModule,
+        ...components,
+    ],
+    exports: components,
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentsModule {
 }

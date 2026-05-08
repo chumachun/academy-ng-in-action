@@ -14,19 +14,19 @@ import { LoginComponent } from './login.component';
 import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    LoginRoutingModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule,
-    ListModule,
-    ComponentsModule,
-    MatCardModule,
-    MatSnackBarModule,
-  ],
-  declarations: [LoginComponent],
+    imports: [
+        CommonModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        LoginRoutingModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        MatInputModule,
+        ListModule,
+        ComponentsModule,
+        MatCardModule,
+        MatSnackBarModule,
+        LoginComponent,
+    ],
 })
 export class LoginModule { }

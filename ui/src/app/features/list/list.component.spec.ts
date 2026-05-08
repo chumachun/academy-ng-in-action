@@ -11,15 +11,13 @@ describe(ListComponent.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        ListComponent,
-        FilterUserPipe,
-      ],
-      providers: [
+    imports: [ListComponent,
+        FilterUserPipe],
+    providers: [
         { provide: UserService, useClass: MockUserService },
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
       .compileComponents();
 
     fixture = TestBed.createComponent(ListComponent);

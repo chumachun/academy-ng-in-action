@@ -3,10 +3,7 @@ import { User } from '../services';
 
 const filterUser = ({ name: testUserName }: User) => ({ name }: User) => name.localeCompare(testUserName);
 
-@Pipe({
-  name: 'filterUser',
-  standalone: false,
-})
+@Pipe({ name: 'filterUser' })
 export class FilterUserPipe implements PipeTransform {
   transform(users: User[], args?: User): User[] | null {
     return args ? users.filter(filterUser(args)) : users;

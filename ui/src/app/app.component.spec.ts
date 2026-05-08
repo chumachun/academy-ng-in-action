@@ -12,17 +12,15 @@ describe(AppComponent.name, () => {
   beforeEach(() => {
 
     TestBed.configureTestingModule({
-      imports: [
+    imports: [
         RouterTestingModule,
-      ],
-      declarations: [
         AppComponent,
-      ],
-      providers: [
+    ],
+    providers: [
         { provide: UserService, useClass: MockUserService },
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).compileComponents();
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+}).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.debugElement.componentInstance;

@@ -1,13 +1,20 @@
 import { Observable } from 'rxjs';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { User, UserService } from 'src/app/services';
+import { NgIf, AsyncPipe } from '@angular/common';
+import { AvatarComponent } from '../avatar/avatar.component';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss'],
-  standalone: false,
+    selector: 'app-user',
+    templateUrl: './user.component.html',
+    styleUrls: ['./user.component.scss'],
+    imports: [
+        NgIf,
+        RouterLink,
+        AvatarComponent,
+        AsyncPipe,
+    ],
 })
 export class UserComponent {
   user$: Observable<User | undefined>;

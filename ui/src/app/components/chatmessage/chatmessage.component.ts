@@ -1,11 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { Message, User } from 'src/app/services';
+import { AvatarComponent } from '../avatar/avatar.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-chatmessage',
-  templateUrl: './chatmessage.component.html',
-  styleUrls: ['./chatmessage.component.scss'],
-  standalone: false,
+    selector: 'app-chatmessage',
+    templateUrl: './chatmessage.component.html',
+    styleUrls: ['./chatmessage.component.scss'],
+    imports: [AvatarComponent, DatePipe],
 })
 export class ChatmessageComponent {
   @Input() message: Message;

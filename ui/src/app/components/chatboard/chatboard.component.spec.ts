@@ -48,13 +48,13 @@ describe(ChatboardComponent.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ChatboardComponent],
-      providers: [{
-        provide: ChatService,
-        useClass: MockChatService,
-      }],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
+    imports: [ChatboardComponent],
+    providers: [{
+            provide: ChatService,
+            useClass: MockChatService,
+        }],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
       .compileComponents();
     fixture = TestBed.createComponent(ChatboardComponent);
     component = fixture.componentInstance;

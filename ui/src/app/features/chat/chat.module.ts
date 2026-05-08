@@ -14,19 +14,19 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ChatRoutingModule,
-    ComponentsModule,
-    FormsModule,
-    ListModule,
-    MatTabsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatDividerModule,
-    MatCardModule,
-  ],
-  declarations: [ChatComponent],
+    imports: [
+        CommonModule,
+        ChatRoutingModule,
+        ComponentsModule,
+        FormsModule,
+        ListModule,
+        MatTabsModule,
+        MatButtonModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatDividerModule,
+        MatCardModule,
+        ChatComponent,
+    ],
 })
 export class ChatModule { }

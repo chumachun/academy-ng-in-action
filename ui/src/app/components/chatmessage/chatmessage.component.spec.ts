@@ -11,9 +11,9 @@ describe(ChatmessageComponent.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ChatmessageComponent],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
+    imports: [ChatmessageComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
       .compileComponents();
 
     fixture = TestBed.createComponent(ChatmessageComponent);

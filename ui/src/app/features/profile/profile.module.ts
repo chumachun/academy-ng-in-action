@@ -8,13 +8,13 @@ import { ProfileComponent } from './profile.component';
 import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MatCardModule,
-    ComponentsModule,
-    ListModule,
-    ProfileRoutingModule,
-  ],
-  declarations: [ProfileComponent],
+    imports: [
+        CommonModule,
+        MatCardModule,
+        ComponentsModule,
+        ListModule,
+        ProfileRoutingModule,
+        ProfileComponent,
+    ],
 })
 export class ProfileModule { }

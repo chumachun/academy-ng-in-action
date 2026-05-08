@@ -1,12 +1,30 @@
 import { ChatService, Message, User, UserService } from 'src/app/services';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { ListComponent } from '../list/list.component';
+import { ChatboardComponent } from '../../components/chatboard/chatboard.component';
+import { FormsModule } from '@angular/forms';
+import { MatFormField } from '@angular/material/select';
+import { MatInput } from '@angular/material/input';
+import { MatButton } from '@angular/material/button';
 
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.scss'],
-  standalone: false,
+    selector: 'app-chat',
+    templateUrl: './chat.component.html',
+    styleUrls: ['./chat.component.scss'],
+    imports: [
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardContent,
+        ListComponent,
+        ChatboardComponent,
+        FormsModule,
+        MatFormField,
+        MatInput,
+        MatButton,
+    ],
 })
 export class ChatComponent implements OnInit, OnDestroy {
   text: string;

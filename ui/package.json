@@ -8,8 +8,8 @@
     "build": "ng build",
     "test": "ng test",
     "test:cov": "ng test --watch=false --code-coverage=true && start ./coverage/index.html",
-    "lint": "ng lint",
-    "lint:fix": "ng lint --fix",
+    "lint": "ng lint && stylelint projects/**/*.scss && prettier --check .",
+    "lint:fix": "ng lint --fix && stylelint --fix projects/**/*.scss && prettier --write .",
     "analyze": "ng build --stats-json --named-chunks && open-cli https://esbuild.github.io/analyze"
   },
   "private": true,
@@ -56,6 +56,8 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
     "open-cli": "^9.0.0",
+    "prettier": "^3.8.1",
+    "stylelint": "^17.6.0",
     "typescript": "~5.5.4",
     "webpack-bundle-analyzer": "^4.10.1"
   }

@@ -15,18 +15,18 @@ describe(LoginComponent.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
+    imports: [
         FormsModule,
         ChatModule,
         RouterTestingModule.withRoutes(routes),
-      ],
-      declarations: [LoginComponent],
-      providers: [
+        LoginComponent,
+    ],
+    providers: [
         { provide: UserService, useClass: MockUserService },
         { provide: MatSnackBar, useValue: {} },
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
       .compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);

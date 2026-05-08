@@ -11,13 +11,12 @@ describe(ProfileComponent.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [ProfileComponent],
-      providers: [
+    imports: [RouterTestingModule, ProfileComponent],
+    providers: [
         { provide: UserService, useClass: MockUserService },
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
       .compileComponents();
 
     fixture = TestBed.createComponent(ProfileComponent);
