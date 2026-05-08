@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, inject } from '@angular/core';
 import { ChatService, Message, User } from 'src/app/services';
 
 import { ChatmessageComponent } from '../chatmessage/chatmessage.component';
@@ -10,10 +10,10 @@ import { ChatmessageComponent } from '../chatmessage/chatmessage.component';
   imports: [ChatmessageComponent],
 })
 export class ChatboardComponent implements OnInit {
+  private service = inject(ChatService);
+
   @Input() user: User | undefined;
   private messages: Message[] = [];
-
-  constructor(private service: ChatService) {}
 
   ngOnInit() {
     this.service.messages(this.user).subscribe(m => (this.messages = m));

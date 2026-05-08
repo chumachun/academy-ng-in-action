@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { first } from 'rxjs/operators';
@@ -17,13 +17,13 @@ import { ListComponent } from '../list/list.component';
   imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, FormsModule, MatFormField, MatInput, MatButton, ListComponent],
 })
 export class LoginComponent {
+  private router = inject(Router);
+  private user = inject(UserService);
+  private snackBar = inject(MatSnackBar);
+
   name: string | null;
 
-  constructor(
-    private router: Router,
-    private user: UserService,
-    private snackBar: MatSnackBar,
-  ) {
+  constructor() {
     this.user
       .user()
       .pipe(first())

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { UserService, ChatService, User, Message } from 'src/app/services';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
@@ -17,12 +17,10 @@ interface Item {
   imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatButton, AsyncPipe],
 })
 export class MainComponent {
-  items$: Observable<Item[]>;
+  readonly userService = inject(UserService);
+  readonly chatService = inject(ChatService);
 
-  constructor(
-    readonly userService: UserService,
-    readonly chatService: ChatService,
-  ) {}
+  items$: Observable<Item[]>;
 
   listUsers() {
     this.items$ = this.userService.list().pipe(map(this.mapItems));

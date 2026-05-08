@@ -1,5 +1,5 @@
 import { ChatService, Message, User, UserService } from 'src/app/services';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 import { ListComponent } from '../list/list.component';
@@ -27,17 +27,15 @@ import { MatButton } from '@angular/material/button';
   ],
 })
 export class ChatComponent implements OnInit, OnDestroy {
+  private userService = inject(UserService);
+  private chatService = inject(ChatService);
+
   text: string;
   message: Message;
 
   user?: User;
   subscription: Subscription;
   receiver?: User;
-
-  constructor(
-    private userService: UserService,
-    private chatService: ChatService,
-  ) {}
 
   async ngOnInit() {
     this.subscription = this.userService.user().subscribe(user => (this.user = user));

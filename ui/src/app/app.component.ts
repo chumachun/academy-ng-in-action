@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User, UserService } from './services';
 import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
@@ -14,9 +14,9 @@ import { UserComponent } from './components/user/user.component';
   imports: [MatToolbar, MatToolbarRow, MatButton, RouterLink, RouterLinkActive, UserComponent, RouterOutlet, AsyncPipe],
 })
 export class AppComponent implements OnInit {
-  user$: Observable<User | undefined>;
+  private userService = inject(UserService);
 
-  constructor(private userService: UserService) {}
+  user$: Observable<User | undefined>;
 
   ngOnInit(): void {
     this.user$ = this.userService.user();

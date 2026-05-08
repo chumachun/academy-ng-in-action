@@ -1,6 +1,6 @@
 import { Observable, from } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User, UserService } from 'src/app/services';
 import { ProfileParams } from './profile-routing.module';
@@ -15,13 +15,11 @@ import { ListComponent } from '../list/list.component';
   imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, ListComponent, AsyncPipe],
 })
 export class ProfileComponent implements OnInit {
-  currentProfile$: Observable<User | undefined>;
+  private userService = inject(UserService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
-  constructor(
-    private userService: UserService,
-    private route: ActivatedRoute,
-    private router: Router,
-  ) {}
+  currentProfile$: Observable<User | undefined>;
 
   ngOnInit() {
     this.currentProfile$ = from(this.userService.list()).pipe(switchMap(list => this.getCurrentFromList(list)));

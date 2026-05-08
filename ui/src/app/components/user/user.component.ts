@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { User, UserService } from 'src/app/services';
 import { AsyncPipe } from '@angular/common';
@@ -12,12 +12,12 @@ import { AvatarComponent } from '../avatar/avatar.component';
   imports: [RouterLink, AvatarComponent, AsyncPipe],
 })
 export class UserComponent {
+  private router = inject(Router);
+  private userService = inject(UserService);
+
   user$: Observable<User | undefined>;
 
-  constructor(
-    private router: Router,
-    private userService: UserService,
-  ) {
+  constructor() {
     this.user$ = this.userService.user();
   }
 

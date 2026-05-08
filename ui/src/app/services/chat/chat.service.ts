@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Message, MessageDto, mapMessage, mapMessages } from './message';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -13,6 +13,8 @@ const CHAT_HUB_ENDPOINT = `${environment.endpoint}/chatHub`;
   providedIn: 'root',
 })
 export class ChatService {
+  private readonly http = inject(HttpClient);
+
   receivedMessages: Message[] = [];
 
   private readonly connection = new HubConnectionBuilder()
@@ -22,7 +24,7 @@ export class ChatService {
     })
     .build();
 
-  constructor(private readonly http: HttpClient) {
+  constructor() {
     this.connection.on('messageReceived', (message: MessageDto) => this.receivedMessages.push(mapMessage(message)));
   }
 

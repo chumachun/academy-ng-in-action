@@ -1,5 +1,5 @@
 import { Observable, BehaviorSubject, Subject, tap, map, switchMap, throwError } from 'rxjs';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User, UserDto, mapUser } from './user';
@@ -10,9 +10,11 @@ const USER_ENDPOINT = `${environment.endpoint}/users`;
   providedIn: 'root',
 })
 export class UserService {
+  private readonly http = inject(HttpClient);
+
   private user$: Subject<User | undefined> = new BehaviorSubject<User | undefined>(undefined);
 
-  constructor(private readonly http: HttpClient) {
+  constructor() {
     const currentUser = localStorage.getItem('currentUser');
 
     if (currentUser && currentUser !== 'undefined') {

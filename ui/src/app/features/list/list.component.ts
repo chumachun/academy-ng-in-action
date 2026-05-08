@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, inject } from '@angular/core';
 import { map, Observable, zip } from 'rxjs';
 import { User, UserService } from 'src/app/services';
 import { MatNavList, MatListItem } from '@angular/material/list';
@@ -13,13 +13,13 @@ import { FilterUserPipe } from 'src/app/pipes';
   imports: [MatNavList, MatListItem, AvatarComponent, AsyncPipe, FilterUserPipe],
 })
 export class ListComponent implements OnInit {
+  private userService = inject(UserService);
+
   @Input() user: User | undefined;
   @Input() hideCurrentUser = false;
   @Input() selected?: User | null;
   @Output() selectUser: EventEmitter<User | undefined> = new EventEmitter<User | undefined>();
   users$: Observable<User[]>;
-
-  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.users$ = zip(this.userService.list(), this.userService.user()).pipe(
