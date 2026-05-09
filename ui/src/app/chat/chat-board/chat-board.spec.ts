@@ -32,6 +32,7 @@ describe(ChatBoard.name, () => {
     component = fixture.componentInstance;
 
     fixture.componentRef.setInput('user', mockUser);
+    await fixture.whenStable();
     fixture.detectChanges();
   });
 

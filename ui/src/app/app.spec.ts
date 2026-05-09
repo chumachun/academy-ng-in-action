@@ -19,6 +19,7 @@ describe(App.name, () => {
 
     fixture = TestBed.createComponent(App);
     component = fixture.componentInstance;
+    await fixture.whenStable();
   });
 
   it('should create', () => {

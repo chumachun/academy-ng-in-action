@@ -16,6 +16,7 @@ describe(User.name, () => {
 
     fixture = TestBed.createComponent(User);
     component = fixture.componentInstance;
+    await fixture.whenStable();
   });
 
   it('should create', () => {

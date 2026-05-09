@@ -23,6 +23,7 @@ describe(Chat.name, () => {
 
     fixture = TestBed.createComponent(Chat);
     component = fixture.componentInstance;
+    await fixture.whenStable();
   });
 
   it('should create', () => {

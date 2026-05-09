@@ -18,12 +18,14 @@ describe(ChatMessage.name, () => {
     fixture = TestBed.createComponent(ChatMessage);
     component = fixture.componentInstance;
 
+    fixture.componentRef.setInput('current', undefined);
     fixture.componentRef.setInput('message', {
       text: 'TEST',
       sender: 'ABC',
       receiver: undefined,
       date: new Date(),
     });
+    await fixture.whenStable();
     fixture.detectChanges();
   });
 

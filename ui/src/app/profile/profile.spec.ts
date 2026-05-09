@@ -16,6 +16,7 @@ describe(Profile.name, () => {
 
     fixture = TestBed.createComponent(Profile);
     component = fixture.componentInstance;
+    await fixture.whenStable();
   });
 
   it('should create', () => {

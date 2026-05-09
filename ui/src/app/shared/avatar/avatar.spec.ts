@@ -22,6 +22,7 @@ describe(Avatar.name, () => {
 
     fixture = TestBed.createComponent(Dummy);
     component = fixture.componentInstance;
+    await fixture.whenStable();
   });
 
   it('should create', () => {

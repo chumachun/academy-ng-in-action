@@ -17,6 +17,7 @@ describe(List.name, () => {
 
     fixture = TestBed.createComponent(List);
     component = fixture.componentInstance;
+    await fixture.whenStable();
   });
 
   it('should create', () => {
