@@ -7,6 +7,9 @@
 # Note: new versions are only resulting from the query when browser db is up to date. To Update. run:
 # npx browserslist@latest --update-db updates caniuse-lite
 
-> .5%
-last 2 versions
+last 2 Chrome versions
+last 2 Firefox versions
+last 2 Edge versions
+last 2 Safari versions
+last 2 iOS versions
 not dead

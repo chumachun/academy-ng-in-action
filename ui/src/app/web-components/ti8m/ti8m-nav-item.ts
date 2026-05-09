@@ -4,7 +4,7 @@ import { property } from 'lit/decorators.js';
 // Extend the LitElement base class
 // export the class, so it can be imported where it is needed
 export class Ti8mNavItemCustomComponent extends LitElement {
-  static styles = css`
+  static override styles = css`
     :host {
       font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       outline: 0;
@@ -47,7 +47,7 @@ export class Ti8mNavItemCustomComponent extends LitElement {
   `;
 
   @property({ type: String }) href;
-  @property({ type: String }) title;
+  @property({ type: String }) override title;
 
   constructor() {
     super();
@@ -55,7 +55,7 @@ export class Ti8mNavItemCustomComponent extends LitElement {
     this.title = 'Not defined';
   }
 
-  render() {
+  override render() {
     return html` <li>${this.title}</li> `;
   }
 }

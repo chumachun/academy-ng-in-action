@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+# 1. Enter the subfolder where your code and node_modules live
+cd ui
+
+# 2. Run lint-staged using the local installation in ui/node_modules
+npx lint-staged

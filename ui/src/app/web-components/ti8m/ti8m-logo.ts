@@ -4,7 +4,7 @@ import { property } from 'lit/decorators.js';
 // Extend the LitElement base class
 // export the class, so it can be imported where it is needed
 export class Ti8mLogoCustomComponent extends LitElement {
-  static styles = css`
+  static override styles = css`
     :host {
       float: left;
       padding: 0 32px;
@@ -30,7 +30,7 @@ export class Ti8mLogoCustomComponent extends LitElement {
     this.imgSrc = 'https://www.ti8m.ch/dam/jcr:f379c49b-e63c-45a2-8651-3c3bda876ee6/Logo_o.svg';
   }
 
-  render() {
+  override render() {
     return html`
       <a>
         <img src="${this.imgSrc}" alt="" />

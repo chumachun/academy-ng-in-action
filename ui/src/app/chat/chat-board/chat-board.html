@@ -1,0 +1,3 @@
+@for (message of sortedMessages; track message) {
+  <app-chat-message [message]="message" [current]="user()" />
+}

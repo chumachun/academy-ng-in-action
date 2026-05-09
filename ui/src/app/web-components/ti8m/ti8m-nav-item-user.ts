@@ -4,7 +4,7 @@ import { property } from 'lit/decorators.js';
 // Extend the LitElement base class
 // export the class, so it can be imported where it is needed
 export class Ti8mNavItemUserCustomComponent extends LitElement {
-  static styles = css`
+  static override styles = css`
     :host {
       font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       display: inline-block;
@@ -40,9 +40,8 @@ export class Ti8mNavItemUserCustomComponent extends LitElement {
     }
   `;
 
-  @property({ type: String }) url: string;
-  @property({ type: String }) avatar: string;
-  // @property( { type : String }  ) user;
+  @property({ type: String }) url = '';
+  @property({ type: String }) avatar = '';
 
   constructor() {
     super();
@@ -53,7 +52,7 @@ export class Ti8mNavItemUserCustomComponent extends LitElement {
     return `https://avatars.dicebear.com/api/human/${avatar}.svg`;
   }
 
-  render() {
+  override render() {
     return html`
       <li>
         <img src="${this.url}" />

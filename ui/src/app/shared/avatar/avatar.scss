@@ -1,0 +1,21 @@
+:host {
+  line-height: 1;
+}
+
+$small: 25px;
+$large: 40px;
+
+img {
+  display: inline-block;
+  width: $small;
+  height: $small;
+  border-radius: $small;
+
+  &.large {
+    width: $large;
+    height: $large;
+    border-radius: $large;
+  }
+
+  background-color: red;
+}

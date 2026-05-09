@@ -1,0 +1,50 @@
+:host {
+  display: block;
+}
+
+.chat-message-container.sent {
+  flex-direction: row-reverse;
+}
+
+.chat-message-container {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 1rem 1rem 0;
+
+  .chat-message {
+    flex: 2;
+    background-color: #f8f8f8;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  &.private {
+    .chat-message {
+      background-color: rgb(255 0 242 / 37%);
+    }
+
+    &.sent .chat-message {
+      background-color: rgb(255 153 0 / 37%);
+    }
+  }
+
+  &.sent .chat-message {
+    background-color: rgb(0 255 159 / 37%);
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: smaller;
+  }
+
+  main {
+    margin-top: 0.5rem;
+    font-size: larger;
+  }
+}
+
+.avatar {
+  margin: 0 1rem;
+}
