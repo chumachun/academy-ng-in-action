@@ -1,4 +1,4 @@
-export const hairColors = ['', 'black', 'blonde', 'red', 'darkbrown'] as const;
+export const hairColors = ['', 'black', 'blonde', 'red', 'dark-brown'] as const;
 export type HairColor = (typeof hairColors)[number];
 
 export interface UserDto {
