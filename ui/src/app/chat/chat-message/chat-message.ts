@@ -12,5 +12,5 @@ import { UserModel } from '../../user';
 })
 export class ChatMessage {
   readonly message = input.required<MessageModel>();
-  readonly current = input<UserModel>();
+  readonly current = input.required<UserModel | undefined>();
 }
