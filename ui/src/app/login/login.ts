@@ -13,7 +13,6 @@ import { UserModel, UserService } from '../user';
 @Component({
   selector: 'app-login',
   templateUrl: './login.html',
-  styleUrls: ['./login.scss'],
   imports: [
     MatCard,
     MatCardHeader,
