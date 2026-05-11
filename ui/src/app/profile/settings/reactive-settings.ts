@@ -17,14 +17,19 @@ import {
   MatDatepickerToggle,
   MatDatepicker,
 } from '@angular/material/datepicker';
-import { FormsModule } from '@angular/forms';
+import {
+  FormControl,
+  NonNullableFormBuilder,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatInput } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
-import { hairColors, UserModel } from '../../user/user-model';
+import { HairColor, hairColors, UserModel } from '../../user/user-model';
 import { UserService } from '../../user/user-service';
 
 @Component({
-  selector: 'app-settings',
+  selector: 'app-reactive-settings',
   imports: [
     AsyncPipe,
     MatCard,
@@ -42,20 +47,30 @@ import { UserService } from '../../user/user-service';
     MatDatepicker,
     MatDatepickerToggle,
     MatDatepickerInput,
-    FormsModule,
+    ReactiveFormsModule,
   ],
-  templateUrl: './settings.html',
+  templateUrl: './reactive-settings.html',
 })
-export class Settings {
+export class ReactiveSettings {
   private readonly route = inject(ActivatedRoute);
   private readonly userService = inject(UserService);
   private readonly snackbar = inject(MatSnackBar);
+  private readonly formBuilder = inject(NonNullableFormBuilder);
 
   readonly availableHairColors = hairColors;
   readonly currentProfile$: Observable<UserModel> = this.route.data.pipe(
     map(data => data['user']),
     map(u => ({ ...u })),
+    tap(user => this.profileForm.patchValue(user)),
   );
+
+  readonly profileForm = this.formBuilder.group({
+    name: new FormControl<string>('', [Validators.required]),
+    firstName: new FormControl<string | null>(null),
+    lastName: new FormControl<string | null>(null),
+    birthDate: new FormControl<Date | null>(null),
+    hairColor: new FormControl<HairColor>(hairColors[0]),
+  });
 
   save(updatedProfile: UserModel): void {
     this.userService

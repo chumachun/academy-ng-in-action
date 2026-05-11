@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { provideRouter } from '@angular/router';
+import { ReactiveSettings } from './reactive-settings';
 
-import { Settings } from './settings';
-
-describe(Settings.name, () => {
-  let component: Settings;
-  let fixture: ComponentFixture<Settings>;
+describe(ReactiveSettings.name, () => {
+  let component: ReactiveSettings;
+  let fixture: ComponentFixture<ReactiveSettings>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Settings],
+      imports: [ReactiveSettings],
       providers: [provideRouter([]), provideNativeDateAdapter()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Settings);
+    fixture = TestBed.createComponent(ReactiveSettings);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

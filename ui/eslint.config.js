@@ -78,11 +78,12 @@ module.exports = defineConfig(
               importNames: [
                 'UntypedFormGroup',
                 'UntypedFormBuilder',
+                'FormBuilder',
                 'UntypedFormControl',
                 'UntypedFormArray',
               ],
               message:
-                'Please use FormGroup, FormBuilder, FormControl, FormArray instead of the untyped versions.',
+                'Please use FormGroup, NonNullableFormBuilder, FormControl, FormArray instead of the untyped versions.',
             },
           ],
           patterns: [
