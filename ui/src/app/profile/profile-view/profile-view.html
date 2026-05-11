@@ -8,10 +8,10 @@
   <span class="title">Last Name: </span><span>{{ user().lastName }}</span>
 </p>
 <p>
-  <span class="title">Birth Date: </span><span>{{ user().birthDate }}</span>
+  <span class="title">Birth Date: </span><span>{{ user().birthDate | date: 'dd.MM.YYYY' }}</span>
 </p>
 <p>
-  <span class="title">Age: </span><span>{{ user().birthDate }}</span>
+  <span class="title">Age: </span><span>{{ user().birthDate | age }}</span>
 </p>
 <p>
   <span class="title">Hair Color: </span
