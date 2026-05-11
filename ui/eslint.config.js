@@ -59,7 +59,7 @@ module.exports = defineConfig(
             },
             {
               name: 'moment',
-              message: 'Please use lodash-es/fooBar instead.',
+              message: 'Please use lodash-es/fooBar or dayjs instead.',
             },
             {
               name: 'lodash',
