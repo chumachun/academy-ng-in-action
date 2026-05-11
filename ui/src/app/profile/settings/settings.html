@@ -1,0 +1,5 @@
+<div class="profile">
+  @if (currentProfile$ | async; as currentProfile) {
+    <app-profile-view [user]="currentProfile" />
+  }
+</div>

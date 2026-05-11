@@ -1,7 +1,7 @@
+import { DatePipe } from '@angular/common';
 import { Component, input } from '@angular/core';
 
 import { UserModel } from '../../user/user-model';
-import { DatePipe } from '@angular/common';
 import { AgePipe } from './age-pipe';
 
 @Component({

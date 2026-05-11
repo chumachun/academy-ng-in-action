@@ -6,6 +6,8 @@ import { hasUserGuard } from './login/has-user-guard';
 import { Login } from './login/login';
 import { Main } from './main/main';
 import { Profile } from './profile/profile';
+import { currentUserResolver } from './profile/settings/current-user-resolver';
+import { Settings } from './profile/settings/settings';
 
 export interface ProfileParams extends Params {
   username?: string;
@@ -38,7 +40,14 @@ export const routes: Routes = [
     component: List,
     canActivate: [hasUserGuard],
   },
-  // Exercise 3: Add new route here.
+  {
+    path: 'profile/edit',
+    component: Settings,
+    canActivate: [hasUserGuard],
+    resolve: {
+      user: currentUserResolver,
+    },
+  },
   {
     path: `profile/:${userNameParam}`,
     component: Profile,
