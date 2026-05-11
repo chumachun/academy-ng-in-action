@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit';
 
 // Extend the LitElement base class
 // export the class, so it can be imported where it is needed
-export class Ti8mNavBarCustomComponent extends LitElement {
+export class NavBarCustomComponent extends LitElement {
   static override styles = css`
     :host {
       display: block;

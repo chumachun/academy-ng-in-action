@@ -3,7 +3,7 @@ import { property } from 'lit/decorators.js';
 
 // Extend the LitElement base class
 // export the class, so it can be imported where it is needed
-export class Ti8mNavItemUserCustomComponent extends LitElement {
+export class NavItemUserCustomComponent extends LitElement {
   static override styles = css`
     :host {
       font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;

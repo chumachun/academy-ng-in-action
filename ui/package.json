@@ -7,7 +7,9 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "test:cov": "ng test --coverage --no-watch && open-cli coverage/ng-in-action/index.html",
+    "test:ui": "ng test --ui",
+    "test:ci": "ng test --no-watch",
+    "test:cov": "npm run test:ci -- --coverage && open-cli coverage/ng-in-action/index.html",
     "lint": "ng lint && stylelint \"**/*.scss\" && prettier --check .",
     "lint:fix": "ng lint --fix && stylelint \"**/*.scss\" --fix .src/**/*.scss && prettier --write .",
     "analyze": "ng build --stats-json --named-chunks && open-cli https://esbuild.github.io/analyze"
@@ -55,6 +57,7 @@
     "@stylistic/eslint-plugin": "^5.10.0",
     "@types/lodash-es": "^4.17.12",
     "@vitest/coverage-v8": "^4.1.5",
+    "@vitest/ui": "^4.1.5",
     "angular-eslint": "21.3.1",
     "eslint": "^10.0.3",
     "eslint-config-prettier": "^10.1.8",

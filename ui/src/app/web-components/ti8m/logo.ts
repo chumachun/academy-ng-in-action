@@ -3,7 +3,7 @@ import { property } from 'lit/decorators.js';
 
 // Extend the LitElement base class
 // export the class, so it can be imported where it is needed
-export class Ti8mLogoCustomComponent extends LitElement {
+export class LogoCustomComponent extends LitElement {
   static override styles = css`
     :host {
       float: left;
