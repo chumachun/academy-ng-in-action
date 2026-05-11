@@ -14,7 +14,7 @@ export class User {
   private readonly router = inject(Router);
   private readonly userService = inject(UserService);
 
-  user$ = this.userService.user();
+  readonly user$ = this.userService.user$;
 
   async logout(): Promise<void> {
     this.userService.unset();

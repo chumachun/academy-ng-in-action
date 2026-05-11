@@ -1,11 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { hasUserGuard } from './has-user-guard';
-import { isObservable, Subject } from 'rxjs';
+import { isObservable } from 'rxjs';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { UserModel, UserService } from '../user';
+import { UserService } from '../user';
+import { mockUserSubject$ } from '../user/mock-user-service';
 
 describe(hasUserGuard.name, () => {
-  let userSubject: Subject<UserModel | null>;
   let routeMock: ActivatedRouteSnapshot;
   let stateMock: RouterStateSnapshot;
 
@@ -14,59 +14,42 @@ describe(hasUserGuard.name, () => {
       providers: [
         {
           provide: UserService,
-          useValue: {
-            user() {
-              return userSubject;
-            },
-          },
+          useValue: { user$: mockUserSubject$.asObservable() },
         },
         { provide: ActivatedRouteSnapshot, useValue: {} },
         { provide: RouterStateSnapshot, useValue: {} },
       ],
     });
 
-    userSubject = new Subject<UserModel | null>();
     routeMock = TestBed.inject(ActivatedRouteSnapshot);
     stateMock = TestBed.inject(RouterStateSnapshot);
   });
 
-  it('should be called and allow navigation if user is present', () => {
-    let called = false;
+  it('should be called and allow navigation if user is present', async () => {
+    mockUserSubject$.next({ name: 'asdf' });
 
-    TestBed.runInInjectionContext(() => {
-      const result = hasUserGuard(routeMock, stateMock);
-      if (!isObservable(result)) {
-        assert.fail('Guard did not return an Observable');
-      }
+    const result = await TestBed.runInInjectionContext(() => hasUserGuard(routeMock, stateMock));
 
-      result.subscribe(value => {
-        expect(value).toBeTruthy();
-        called = true;
-      });
+    if (!isObservable(result)) {
+      assert.fail('Guard did not return an Observable');
+    }
+
+    result.subscribe(value => {
+      expect(value).toBeTruthy();
     });
-
-    userSubject.next({ name: 'asdf' });
-
-    expect(called).toBeTruthy();
   });
 
-  it('should be called and not allow navigation if user is not present', () => {
-    let called = false;
+  it('should be called and not allow navigation if user is not present', async () => {
+    mockUserSubject$.next(undefined);
 
-    TestBed.runInInjectionContext(() => {
-      const result = hasUserGuard(routeMock, stateMock);
-      if (!isObservable(result)) {
-        assert.fail('Guard did not return an Observable');
-      }
+    const result = await TestBed.runInInjectionContext(() => hasUserGuard(routeMock, stateMock));
 
-      result.subscribe(value => {
-        expect(value).toBeFalsy();
-        called = true;
-      });
+    if (!isObservable(result)) {
+      assert.fail('Guard did not return an Observable');
+    }
+
+    result.subscribe(value => {
+      expect(value).toBeFalsy();
     });
-
-    userSubject.next(null);
-
-    expect(called).toBeTruthy();
   });
 });

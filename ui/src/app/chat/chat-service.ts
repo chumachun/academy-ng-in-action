@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 import { HttpTransportType, HubConnectionBuilder } from '@microsoft/signalr';
 import { environment } from '../../environments/environment';
 import { MessageModel, MessageDto, mapMessage, mapMessages } from './message-model';
@@ -15,7 +15,8 @@ const CHAT_HUB_ENDPOINT = `${environment.endpoint}/chatHub`;
 export class ChatService {
   private readonly http = inject(HttpClient);
 
-  receivedMessages: MessageModel[] = [];
+  private readonly receivedMessagesSubject$ = new BehaviorSubject<MessageModel[]>([]);
+  readonly receivedMessages$ = this.receivedMessagesSubject$.asObservable();
 
   private readonly connection = new HubConnectionBuilder()
     .withUrl(CHAT_HUB_ENDPOINT, {
@@ -26,7 +27,10 @@ export class ChatService {
 
   constructor() {
     this.connection.on('messageReceived', (message: MessageDto) =>
-      this.receivedMessages.push(mapMessage(message)),
+      this.receivedMessagesSubject$.next([
+        ...this.receivedMessagesSubject$.value,
+        mapMessage(message),
+      ]),
     );
   }
 
@@ -36,7 +40,7 @@ export class ChatService {
 
   async closeHub() {
     await this.connection.stop();
-    this.receivedMessages = [];
+    this.receivedMessagesSubject$.next([]);
   }
 
   messages(user: UserModel | undefined): Observable<MessageModel[]> {
@@ -53,7 +57,7 @@ export class ChatService {
     this.connection.send('sendMessage', message).catch(error => console.error(error));
 
     return this.http.post<MessageDto>(MESSAGES_ENDPOINT, message).pipe(
-      tap(({ id }) => console.log('ChatService.add', { ...message, id })),
+      tap(({ id }) => console.debug('ChatService.add', { ...message, id })),
       map(mapMessage),
     );
   }

@@ -1,4 +1,4 @@
-import { Observable, BehaviorSubject, Subject, tap, map, switchMap, throwError } from 'rxjs';
+import { Observable, BehaviorSubject, Subject, tap, map, switchMap, throwError, take } from 'rxjs';
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserModel, UserDto, mapUser } from './user-model';
@@ -12,9 +12,11 @@ const USER_ENDPOINT = `${environment.endpoint}/users`;
 export class UserService {
   private readonly http = inject(HttpClient);
 
-  private readonly user$: Subject<UserModel | undefined> = new BehaviorSubject<
+  private readonly userSubject$: Subject<UserModel | undefined> = new BehaviorSubject<
     UserModel | undefined
   >(undefined);
+
+  readonly user$ = this.userSubject$.asObservable();
 
   constructor() {
     const currentUser = localStorage.getItem('currentUser');
@@ -26,7 +28,7 @@ export class UserService {
 
   set(user: UserModel | undefined) {
     localStorage.setItem('currentUser', JSON.stringify(user));
-    this.user$.next(user);
+    this.userSubject$.next(user);
   }
 
   unset() {
@@ -53,12 +55,9 @@ export class UserService {
     return this.http.get<UserDto[]>(USER_ENDPOINT).pipe(map(users => users.map(mapUser)));
   }
 
-  user(): Observable<UserModel | undefined> {
-    return this.user$.asObservable();
-  }
-
   private userExists(user: UserModel): Observable<boolean> {
     return this.list().pipe(
+      take(1),
       map(users => users.some(u => u.name.toUpperCase() === user.name.toUpperCase())),
     );
   }

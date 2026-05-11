@@ -1,38 +1,39 @@
-import { Component, OnInit, inject, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 
 import { ChatMessage } from '../chat-message/chat-message';
 import { UserModel } from '../../user';
-import { MessageModel } from '../message-model';
 import { ChatService } from '../chat-service';
+import { combineLatest, map } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-chat-board',
-  imports: [ChatMessage],
+  imports: [AsyncPipe, ChatMessage],
   templateUrl: './chat-board.html',
   styleUrls: ['./chat-board.scss'],
 })
-export class ChatBoard implements OnInit {
+export class ChatBoard {
   private readonly service = inject(ChatService);
 
   readonly user = input<UserModel>();
-  private messages: MessageModel[] = [];
 
-  ngOnInit() {
-    this.service.messages(this.user()).subscribe(m => (this.messages = m));
-  }
+  private readonly history$ = this.service.messages(this.user());
+  private readonly updates$ = this.service.receivedMessages$.pipe(
+    map(messages =>
+      messages.filter(message => {
+        const user = this.user();
+        return (
+          message.sender === user?.name ||
+          message.receiver === user?.name ||
+          (!message.receiver && message.sender !== user?.name)
+        );
+      }),
+    ),
+  );
 
-  get sortedMessages() {
-    return this.messages
-      .concat(
-        this.service.receivedMessages.filter(m => {
-          const user = this.user();
-          return (
-            m.sender === user?.name ||
-            m.receiver === user?.name ||
-            (!m.receiver && m.sender !== user?.name)
-          );
-        }),
-      )
-      .sort((a, b) => a.date.getTime() - b.date.getTime());
-  }
+  readonly sortedMessages$ = combineLatest([this.history$, this.updates$]).pipe(
+    map(([history, updates]) =>
+      [...history, ...updates].sort((a, b) => a.date.getTime() - b.date.getTime()),
+    ),
+  );
 }

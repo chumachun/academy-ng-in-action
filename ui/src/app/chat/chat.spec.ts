@@ -4,8 +4,8 @@ import { provideRouter } from '@angular/router';
 import { UserService } from '../user';
 import { ChatService } from './chat-service';
 import { Chat } from './chat';
-import { ChatServiceMock } from './chat-service-mock';
-import { UserServiceMock } from '../user/user-service-mock';
+import { MockChatService } from './mock-chat-service';
+import { MockUserService } from '../user/mock-user-service';
 
 describe(Chat.name, () => {
   let fixture: ComponentFixture<Chat>;
@@ -16,8 +16,8 @@ describe(Chat.name, () => {
       imports: [FormsModule, Chat],
       providers: [
         provideRouter([]),
-        { provide: UserService, useClass: UserServiceMock },
-        { provide: ChatService, useClass: ChatServiceMock },
+        { provide: UserService, useClass: MockUserService },
+        { provide: ChatService, useClass: MockChatService },
       ],
     }).compileComponents();
 

@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { first } from 'rxjs/operators';
+import { catchError, filter, first, tap } from 'rxjs/operators';
+import { EMPTY } from 'rxjs';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { MatFormField } from '@angular/material/select';
@@ -33,27 +34,31 @@ export class Login {
   name: string | null = null;
 
   constructor() {
-    this.user
-      .user()
-      .pipe(first())
-      .subscribe(async currentUser => {
-        if (currentUser) {
-          await this.navigate();
-        }
-      });
+    this.user.user$
+      .pipe(
+        filter(currentUser => !!currentUser),
+        first(),
+        tap(async () => await this.navigate()),
+      )
+      .subscribe();
   }
 
   register() {
     const user: UserModel = { name: this.name ?? '' };
 
-    this.user.add(user).subscribe({
-      complete: async () => await this.navigate(),
-      error: error => {
-        console.log(error);
-        this.showError(`User could not be added: ${error}`);
-        this.name = null;
-      },
-    });
+    this.user
+      .add(user)
+      .pipe(
+        first(),
+        tap(async () => await this.navigate()),
+        catchError(error => {
+          console.error(error);
+          this.showError(`User could not be added: ${error}`);
+          this.name = null;
+          return EMPTY;
+        }),
+      )
+      .subscribe();
   }
 
   async login(user: UserModel | undefined) {

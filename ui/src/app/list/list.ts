@@ -19,7 +19,7 @@ export class List {
   readonly hideCurrentUser = input(false);
   readonly selected = model<UserModel>();
 
-  users$ = zip(this.userService.list(), this.userService.user()).pipe(
+  readonly users$ = zip(this.userService.list(), this.userService.user$).pipe(
     map(([users, user]) =>
       this.hideCurrentUser() ? users.filter(u => u.name !== user?.name) : users,
     ),

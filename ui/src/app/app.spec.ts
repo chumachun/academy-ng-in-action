@@ -2,20 +2,17 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { App } from './app';
 import { UserService } from './user';
-import { UserServiceMock } from './user/user-service-mock';
+import { MockUserService } from './user/mock-user-service';
 
 describe(App.name, () => {
   let fixture: ComponentFixture<App>;
   let component: App;
-  let service: UserService;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [App],
-      providers: [provideRouter([]), { provide: UserService, useClass: UserServiceMock }],
+      providers: [provideRouter([]), { provide: UserService, useClass: MockUserService }],
     }).compileComponents();
-
-    service = TestBed.inject(UserService);
 
     fixture = TestBed.createComponent(App);
     component = fixture.componentInstance;
@@ -24,9 +21,5 @@ describe(App.name, () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it(`should call ${UserService.name}.user() on creation`, () => {
-    expect(service.user).toHaveBeenCalled();
   });
 });

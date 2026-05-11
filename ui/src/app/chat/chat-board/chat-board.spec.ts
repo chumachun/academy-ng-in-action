@@ -2,9 +2,9 @@ import { By } from '@angular/platform-browser';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChatBoard } from './chat-board';
 
-import { ChatServiceMock, mockMessages, mockReceivedMessages } from '../../chat/chat-service-mock';
+import { MockChatService, mockMessages, mockReceivedMessagesSubject$ } from '../mock-chat-service';
 import { ChatService } from '../chat-service';
-import { mockUser } from '../../user/user-service-mock';
+import { mockUser } from '../../user/mock-user-service';
 
 describe(ChatBoard.name, () => {
   let fixture: ComponentFixture<ChatBoard>;
@@ -24,7 +24,7 @@ describe(ChatBoard.name, () => {
       providers: [
         {
           provide: ChatService,
-          useClass: ChatServiceMock,
+          useClass: MockChatService,
         },
       ],
     }).compileComponents();
@@ -39,23 +39,16 @@ describe(ChatBoard.name, () => {
     expect(component).toBeTruthy();
   });
 
-  it(`should call ${ChatService.name}.messages on init`, () => {
-    const service = TestBed.inject(ChatService);
-
-    component.ngOnInit();
-    expect(service.messages).toHaveBeenCalled();
-  });
-
   it('should show one chat message component per message', () => {
     const result = getChatMessages().length;
 
-    expect(result).toBe(mockMessages.length + mockReceivedMessages.length);
+    expect(result).toBe(mockMessages.length + mockReceivedMessagesSubject$.value.length);
   });
 
   it('should sort chat messages by date and assign chat message to chat message component', () => {
     const result = getFirstChatMessage().componentInstance.message();
 
-    expect(result).toEqual(mockReceivedMessages[0]);
+    expect(result).toEqual(mockReceivedMessagesSubject$.value[0]);
   });
 
   it('should assign user to chat message component', () => {

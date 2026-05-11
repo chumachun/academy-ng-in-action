@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { provideRouter } from '@angular/router';
 import { Login } from './login';
-import { UserServiceMock } from '../user/user-service-mock';
+import { MockUserService } from '../user/mock-user-service';
 import { UserService } from '../user';
 
 describe(Login.name, () => {
@@ -15,7 +15,7 @@ describe(Login.name, () => {
       imports: [FormsModule, Login],
       providers: [
         provideRouter([{ path: 'chat', component: class {} }]),
-        { provide: UserService, useClass: UserServiceMock },
+        { provide: UserService, useClass: MockUserService },
         { provide: MatSnackBar, useValue: {} },
       ],
     }).compileComponents();

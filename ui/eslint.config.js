@@ -83,7 +83,7 @@ module.exports = defineConfig(
           ],
           patterns: [
             {
-              group: ['**/mock*'],
+              group: ['**/*mock*'],
               message: 'Please remove mock data import from production build.',
             },
           ],
@@ -150,6 +150,12 @@ module.exports = defineConfig(
       '@typescript-eslint/non-nullable-type-assertion-style': 'error',
       '@typescript-eslint/prefer-readonly': 'error',
       '@typescript-eslint/prefer-reduce-type-parameter': 'error',
+    },
+  },
+  {
+    files: ['**/*.spec.ts', '**/*mock*.ts'],
+    rules: {
+      'no-restricted-imports': 'off',
     },
   },
   {

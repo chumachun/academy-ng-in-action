@@ -11,4 +11,4 @@ if (environment.production) {
 
 defineTi8mCustomComponents();
 
-bootstrapApplication(App, appConfig).catch(err => console.log(err));
+bootstrapApplication(App, appConfig).catch(err => console.error(err));

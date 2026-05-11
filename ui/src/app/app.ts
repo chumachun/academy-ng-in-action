@@ -23,5 +23,5 @@ import { User, UserService } from './user';
 export class App {
   private readonly userService = inject(UserService);
 
-  user$ = this.userService.user();
+  readonly user$ = this.userService.user$;
 }

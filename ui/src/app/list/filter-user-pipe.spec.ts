@@ -1,6 +1,6 @@
 import { FilterUserPipe } from './filter-user-pipe';
 import { UserModel } from '../user';
-import { mockUsers } from '../user/user-service-mock';
+import { mockUsers } from '../user/mock-user-service';
 
 describe(FilterUserPipe.name, () => {
   const pipe = new FilterUserPipe();

@@ -4,27 +4,34 @@
       <mat-card-title color="primary"> Chat </mat-card-title>
     </mat-card-header>
     <mat-card-content class="chat-content">
-      <div class="chat-users">
-        Select Receiver:
-        <app-list
-          [user]="user"
-          (selectedChange)="selectReceiver($event)"
-          [hideCurrentUser]="true"
-        />
-      </div>
-      <div class="chat-list">
-        <app-chat-board [user]="user" />
-        <form novalidate #chatForm="ngForm">
-          <div class="chat-message">
-            <mat-form-field>
-              <textarea matInput [(ngModel)]="text" required name="text"></textarea>
-            </mat-form-field>
-            <button mat-raised-button color="primary" [disabled]="!chatForm.valid" (click)="send()">
-              Send
-            </button>
-          </div>
-        </form>
-      </div>
+      @if (user$ | async; as user) {
+        <div class="chat-users">
+          Select Receiver:
+          <app-list
+            [user]="user"
+            (selectedChange)="selectReceiver($event)"
+            [hideCurrentUser]="true"
+          />
+        </div>
+        <div class="chat-list">
+          <app-chat-board [user]="user" />
+          <form novalidate #chatForm="ngForm">
+            <div class="chat-message">
+              <mat-form-field>
+                <textarea matInput [(ngModel)]="text" required name="text"></textarea>
+              </mat-form-field>
+              <button
+                mat-raised-button
+                color="primary"
+                [disabled]="!chatForm.valid"
+                (click)="send(user)"
+              >
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+      }
     </mat-card-content>
   </mat-card>
 </div>

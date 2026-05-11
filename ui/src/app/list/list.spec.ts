@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 import { List } from './list';
 import { FilterUserPipe } from './filter-user-pipe';
 import { UserService } from '../user';
-import { UserServiceMock } from '../user/user-service-mock';
+import { MockUserService } from '../user/mock-user-service';
 
 describe(List.name, () => {
   let fixture: ComponentFixture<List>;
@@ -12,7 +12,7 @@ describe(List.name, () => {
   beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [List, FilterUserPipe],
-      providers: [provideRouter([]), { provide: UserService, useClass: UserServiceMock }],
+      providers: [provideRouter([]), { provide: UserService, useClass: MockUserService }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(List);
