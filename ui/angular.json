@@ -28,7 +28,6 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              
               }
             ],
             "styles": ["src/styles.scss"]
@@ -83,7 +82,6 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
-          
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
