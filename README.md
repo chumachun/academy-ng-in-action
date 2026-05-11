@@ -17,6 +17,7 @@ The repo consists of two parts. A UI where the exercises can be found and a API 
 [API service](./api/README.md).
 
 ## CI Status
+
 | __Branch__ | __Status__ |
 | :-- | :-- |
 | main | [![CI](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml) |
