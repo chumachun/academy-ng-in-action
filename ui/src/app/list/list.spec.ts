@@ -21,7 +21,6 @@ describe(List.name, () => {
   });
 
   it('should create', () => {
-    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

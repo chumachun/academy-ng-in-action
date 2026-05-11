@@ -17,16 +17,14 @@ describe(ChatMessage.name, () => {
 
     fixture = TestBed.createComponent(ChatMessage);
     component = fixture.componentInstance;
-
     fixture.componentRef.setInput('current', undefined);
     fixture.componentRef.setInput('message', {
       text: 'TEST',
       sender: 'ABC',
       receiver: undefined,
       date: new Date(),
-    });
+    });    
     await fixture.whenStable();
-    fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -43,7 +41,7 @@ describe(ChatMessage.name, () => {
   });
 
   it('should have a not sent class when current user is not sender', () => {
-    fixture.componentRef.setInput('current', { name: 'NOTABC' });
+    fixture.componentRef.setInput('current', { name: 'NOT_ABC' });
     fixture.detectChanges();
 
     const sent = getSentCssClass(fixture);

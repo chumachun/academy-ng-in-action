@@ -28,12 +28,11 @@ describe(ChatBoard.name, () => {
         },
       ],
     }).compileComponents();
+    
     fixture = TestBed.createComponent(ChatBoard);
     component = fixture.componentInstance;
-
     fixture.componentRef.setInput('user', mockUser);
     await fixture.whenStable();
-    fixture.detectChanges();
   });
 
   it('should create', () => {

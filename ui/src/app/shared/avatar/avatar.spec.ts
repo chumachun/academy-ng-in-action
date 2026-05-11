@@ -26,13 +26,11 @@ describe(Avatar.name, () => {
   });
 
   it('should create', () => {
-    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 
   it('should set the correct background url', () => {
-    const name = 'Hans';
-    fixture.componentRef.setInput('name', name);
+    fixture.componentRef.setInput('name', 'Hans');
     fixture.detectChanges();
 
     const imgAttributes = fixture.debugElement.query(By.css('img')).attributes;
