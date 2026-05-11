@@ -8,9 +8,9 @@ import { UserModel, UserService } from '../user';
 
 @Component({
   selector: 'app-list',
+  imports: [MatNavList, MatListItem, Avatar, AsyncPipe, FilterUserPipe],
   templateUrl: './list.html',
   styleUrls: ['./list.scss'],
-  imports: [MatNavList, MatListItem, Avatar, AsyncPipe, FilterUserPipe],
 })
 export class List {
   private readonly userService = inject(UserService);

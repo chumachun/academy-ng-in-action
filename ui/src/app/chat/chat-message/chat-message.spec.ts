@@ -23,7 +23,7 @@ describe(ChatMessage.name, () => {
       sender: 'ABC',
       receiver: undefined,
       date: new Date(),
-    });    
+    });
     await fixture.whenStable();
   });
 

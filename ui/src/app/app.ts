@@ -7,8 +7,6 @@ import { User, UserService } from './user';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.html',
-  styleUrls: ['./app.scss'],
   imports: [
     MatToolbar,
     MatToolbarRow,
@@ -19,6 +17,8 @@ import { User, UserService } from './user';
     RouterOutlet,
     AsyncPipe,
   ],
+  templateUrl: './app.html',
+  styleUrls: ['./app.scss'],
 })
 export class App {
   private readonly userService = inject(UserService);

@@ -6,9 +6,9 @@ import { UserService } from './user-service';
 
 @Component({
   selector: 'app-user',
+  imports: [RouterLink, Avatar, AsyncPipe],
   templateUrl: './user.html',
   styleUrls: ['./user.scss'],
-  imports: [RouterLink, Avatar, AsyncPipe],
 })
 export class User {
   private readonly router = inject(Router);

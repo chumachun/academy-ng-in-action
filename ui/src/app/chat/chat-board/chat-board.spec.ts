@@ -28,7 +28,7 @@ describe(ChatBoard.name, () => {
         },
       ],
     }).compileComponents();
-    
+
     fixture = TestBed.createComponent(ChatBoard);
     component = fixture.componentInstance;
     fixture.componentRef.setInput('user', mockUser);

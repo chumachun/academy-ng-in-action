@@ -12,7 +12,6 @@ import { UserModel, UserService } from '../user';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.html',
   imports: [
     MatCard,
     MatCardHeader,
@@ -24,6 +23,7 @@ import { UserModel, UserService } from '../user';
     MatButton,
     List,
   ],
+  templateUrl: './login.html',
 })
 export class Login {
   private readonly router = inject(Router);

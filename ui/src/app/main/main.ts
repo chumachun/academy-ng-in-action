@@ -13,9 +13,9 @@ interface Item {
 
 @Component({
   selector: 'app-main',
+  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatButton, AsyncPipe],
   templateUrl: './main.html',
   styleUrls: ['./main.scss'],
-  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatButton, AsyncPipe],
 })
 export class Main {
   readonly userService = inject(UserService);

@@ -10,9 +10,9 @@ import { UserModel, UserService } from '../user';
 
 @Component({
   selector: 'app-profile',
+  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, List, AsyncPipe],
   templateUrl: './profile.html',
   styleUrls: ['./profile.scss'],
-  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, List, AsyncPipe],
 })
 export class Profile {
   private readonly userService = inject(UserService);

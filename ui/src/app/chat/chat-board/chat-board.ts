@@ -7,9 +7,9 @@ import { ChatService } from '../chat-service';
 
 @Component({
   selector: 'app-chat-board',
+  imports: [ChatMessage],
   templateUrl: './chat-board.html',
   styleUrls: ['./chat-board.scss'],
-  imports: [ChatMessage],
 })
 export class ChatBoard implements OnInit {
   private readonly service = inject(ChatService);

@@ -6,9 +6,9 @@ import { UserModel } from '../../user';
 
 @Component({
   selector: 'app-chat-message',
+  imports: [Avatar, DatePipe],
   templateUrl: './chat-message.html',
   styleUrls: ['./chat-message.scss'],
-  imports: [Avatar, DatePipe],
 })
 export class ChatMessage {
   readonly message = input.required<MessageModel>();
