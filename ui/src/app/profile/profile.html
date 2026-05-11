@@ -14,7 +14,7 @@
         </div>
         @if (observable.currentProfile) {
           <div class="profile-view">
-            <!--  Exercise 1: Use new created ProfileViewComponent and pass currentProfile as parameter. -->
+            <app-profile-view [user]="observable.currentProfile" />
           </div>
         }
       </mat-card-content>

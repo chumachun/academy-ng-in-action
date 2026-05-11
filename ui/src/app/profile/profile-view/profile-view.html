@@ -1,0 +1,18 @@
+<p>
+  <span class="title">Nick Name: </span><span>{{ user().name}}</span>
+</p>
+<p>
+  <span class="title">First Name: </span><span>{{ user().firstName}}</span>
+</p>
+<p>
+  <span class="title">Last Name: </span><span>{{ user().lastName}}</span>
+</p>
+<p>
+  <span class="title">Birth Date: </span><span>{{ user().birthDate }}</span>
+</p>
+<p>
+  <span class="title">Age: </span><span>{{ user().birthDate }}</span>
+</p>
+<p>
+  <span class="title">Hair Color: </span><span [class]="user().hairColor ?? ''">{{ user().hairColor }}</span>
+</p>

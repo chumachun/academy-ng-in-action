@@ -8,10 +8,11 @@ import { List } from '../list/list';
 import { ProfileParams } from '../app.routes';
 import { UserService } from '../user/user-service';
 import { UserModel } from '../user/user-model';
+import { ProfileView } from './profile-view/profile-view';
 
 @Component({
   selector: 'app-profile',
-  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, List, AsyncPipe],
+  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, List, AsyncPipe, ProfileView],
   templateUrl: './profile.html',
   styleUrls: ['./profile.scss'],
 })
