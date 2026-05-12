@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ "main", "*solution" ]
+    branches: [ "main", "solution/*" ]
   pull_request:
-    branches: [ "main", "*solution" ]
+    branches: [ "main", "solution/*" ]
 
 jobs:
   # This job will do a clean installation of node dependencies, cache/restore them, build the source code and run tests
