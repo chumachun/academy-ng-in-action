@@ -5,6 +5,8 @@
         <app-avatar [name]="user.name" />
         <span>{{ user.name }}</span>
       </mat-list-item>
+    } @empty {
+      <span>Currently, no users exist. Share the app with your friends!</span>
     }
   }
 </mat-nav-list>
