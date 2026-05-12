@@ -18,8 +18,8 @@ The repo consists of two parts. A UI where the exercises can be found and a API 
 
 ## CI Status
 
-| __Branch__ | __Status__ |
-| :-- | :-- |
-| main | [![CI](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml) |
-| basic solution | [![CI](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml/badge.svg?branch=solution/basic)](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml) |
-| advanced solution | [![CI](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml/badge.svg?branch=solution/advanced)](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml) |
+| __Branch__ | __Status__ | __Coverage__ |
+| :-- | :-- | :-- |
+| main | [![CI](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml) | ![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/chumachun/39e4ee58f2a5186b8b7b34d063d57186/raw/ng-in-action-coverage-main.json) |
+| basic solution | [![CI](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml/badge.svg?branch=solution/basic)](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml) | ![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/chumachun/39e4ee58f2a5186b8b7b34d063d57186/raw/ng-in-action-coverage-solution-basic.json) |
+| advanced solution | [![CI](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml/badge.svg?branch=solution/advanced)](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml) | ![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/chumachun/39e4ee58f2a5186b8b7b34d063d57186/raw/ng-in-action-coverage-solution-advanced.json) |

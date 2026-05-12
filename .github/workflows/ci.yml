@@ -28,6 +28,27 @@ jobs:
     - run: npm run build    
     - run: npm run lint
     - run: npm run test:ci
+    - name: Read Coverage Summary
+      id: coverage_data
+      run:  |
+        SUMMARY=$(cat ./coverage/ng-in-action/coverage-summary.json | jq -c .)
+        echo "summary=$SUMMARY" >> $GITHUB_OUTPUT
+    - name: Prepare Safe Branch Name
+      id: vars
+      run: |
+        SAFE_NAME=$(echo "${{ github.ref_name }}" | sed 's/\//-/g')
+        echo "safe_branch=$SAFE_NAME" >> $GITHUB_OUTPUT
+    - name: Create Coverage Badge
+      uses: schneegans/dynamic-badges-action@v1.8.0
+      with:
+        auth: ${{ secrets.GIST_TOKEN }}
+        gistID: 39e4ee58f2a5186b8b7b34d063d57186
+        filename: ng-in-action-coverage-${{ steps.vars.outputs.safe_branch }}.json
+        label: Coverage
+        message: "${{ fromJson(steps.coverage_data.outputs.summary).total.lines.pct }}%"
+        valColorRange: ${{ fromJson(steps.coverage_data.outputs.summary).total.lines.pct }}
+        maxColorRange: 100
+        minColorRange: 0    
     - name: 'Report Coverage'
       # Set if: always() to also generate the report if tests are failing
       # Only works if you set `reportOnFailure: true` in your vite config as specified above
@@ -37,7 +58,7 @@ jobs:
         working-directory: "./ui"
         json-summary-path: "./coverage/ng-in-action/coverage-summary.json"
         json-final-path: "./coverage/ng-in-action/coverage-final.json"
-        threshold-icons: "{0: '🔴', 80: '🟠', 90: '🟢'}"
+        threshold-icons: "{0: '🔴', 80: '🟠', 90: '🟢'}"    
 
   # This job will do a clean installation of NuGet dependencies, restore them, build the source code and run tests
   # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
