@@ -1,12 +1,6 @@
 import { Params, Routes } from '@angular/router';
-import { Main } from './main/main';
-import { Profile } from './profile/profile';
-import { Chat } from './chat/chat';
-import { List } from './list/list';
-import { Login } from './login/login';
 import { hasUserGuard } from './login/has-user-guard';
 import { currentUserResolver } from './profile/settings/current-user-resolver';
-import { ReactiveSettings } from './profile/settings/reactive-settings';
 
 export interface ProfileParams extends Params {
   username?: string;
@@ -23,25 +17,26 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: Login,
+    loadComponent: () => import('./login/login').then(m => m.Login),
   },
   {
     path: 'main',
-    component: Main,
+    loadComponent: () => import('./main/main').then(m => m.Main),
   },
   {
     path: 'chat',
-    component: Chat,
+    loadComponent: () => import('./chat/chat').then(m => m.Chat),
     canActivate: [hasUserGuard],
   },
   {
     path: 'list',
-    component: List,
+    loadComponent: () => import('./list/list').then(m => m.List),
     canActivate: [hasUserGuard],
   },
   {
     path: 'profile/edit',
-    component: ReactiveSettings,
+    loadComponent: () =>
+      import('./profile/settings/reactive-settings').then(m => m.ReactiveSettings),
     canActivate: [hasUserGuard],
     resolve: {
       user: currentUserResolver,
@@ -49,7 +44,7 @@ export const routes: Routes = [
   },
   {
     path: `profile/:${userNameParam}`,
-    component: Profile,
+    loadComponent: () => import('./profile/profile').then(m => m.Profile),
     canActivate: [hasUserGuard],
   },
   {
