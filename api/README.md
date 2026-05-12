@@ -12,4 +12,4 @@ If Required (dev process) you can host it locally. See below descriptions.
 To connect to cosmos db, either use your own container or ask me to get the key.
 They provided key must be set under  [launchSettings.json](./Properties/launchSettings.json).
 Note: Do not commit key to git.
-To ignore file changes, execute within root dir: ` git update-index --assume-unchanged ./api/Properties/launchSettings.json`
+To ignore file changes, execute within root dir: `git update-index --assume-unchanged ./api/Properties/launchSettings.json`

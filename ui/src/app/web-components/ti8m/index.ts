@@ -1,13 +1,13 @@
-import { Ti8mLogoCustomComponent } from './ti8m-logo';
-import { Ti8mNavBarCustomComponent } from './ti8m-nav-bar';
-import { Ti8mNavItemCustomComponent } from './ti8m-nav-item';
-import { Ti8mNavItemGroupCustomComponent } from './ti8m-nav-item-group';
-import { Ti8mNavItemUserCustomComponent } from './ti8m-nav-item-user';
+import { LogoCustomComponent } from './logo';
+import { NavBarCustomComponent } from './nav-bar';
+import { NavItemCustomComponent } from './nav-item';
+import { NavItemGroupCustomComponent } from './nav-item-group';
+import { NavItemUserCustomComponent } from './nav-item-user';
 
-export function defineTi8mCustomComponents() {
-  customElements.define('tim-logo', Ti8mLogoCustomComponent);
-  customElements.define('tim-nav-bar', Ti8mNavBarCustomComponent);
-  customElements.define('tim-nav-item', Ti8mNavItemCustomComponent);
-  customElements.define('tim-nav-item-group', Ti8mNavItemGroupCustomComponent);
-  customElements.define('tim-nav-item-user', Ti8mNavItemUserCustomComponent);
+export function defineCustomComponents() {
+  customElements.define('tim-logo', LogoCustomComponent);
+  customElements.define('tim-nav-bar', NavBarCustomComponent);
+  customElements.define('tim-nav-item', NavItemCustomComponent);
+  customElements.define('tim-nav-item-group', NavItemGroupCustomComponent);
+  customElements.define('tim-nav-item-user', NavItemUserCustomComponent);
 }
