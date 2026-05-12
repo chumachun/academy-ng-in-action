@@ -10,7 +10,8 @@ describe(List.name, () => {
   let component: List;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({
+    // We need to await for lazy/deferred chunks to be loaded.
+    await TestBed.configureTestingModule({
       imports: [List, FilterUserPipe],
       providers: [provideRouter([]), { provide: UserService, useClass: MockUserService }],
     }).compileComponents();
