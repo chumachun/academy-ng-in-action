@@ -7,7 +7,7 @@ import { mockUserSubject$ } from '../user/mock-user-service';
 
 describe(hasUserGuard.name, () => {
   const executeGuard: CanActivateFn = (...guardParameters) =>
-      TestBed.runInInjectionContext(() => hasUserGuard(...guardParameters));
+    TestBed.runInInjectionContext(() => hasUserGuard(...guardParameters));
 
   let mockRoute: ActivatedRouteSnapshot;
   let mockState: RouterStateSnapshot;
@@ -48,7 +48,7 @@ describe(hasUserGuard.name, () => {
     if (!isObservable(result)) {
       assert.fail('Guard did not return an Observable');
     }
-   
+
     expect(await firstValueFrom(result)).toBeFalsy();
   });
 });
