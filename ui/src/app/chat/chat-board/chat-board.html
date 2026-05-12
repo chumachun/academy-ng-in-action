@@ -1,5 +1,5 @@
 @if (sortedMessages$ | async; as sortedMessages) {
-  @for (message of sortedMessages; track message) {
+  @for (message of sortedMessages; track message.id) {
     <app-chat-message [message]="message" [current]="user()" />
   }
 }
