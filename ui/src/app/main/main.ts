@@ -3,8 +3,10 @@ import { Observable, map } from 'rxjs';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
 import { AsyncPipe } from '@angular/common';
-import { ChatService, MessageModel } from '../chat';
-import { UserModel, UserService } from '../user';
+import { UserService } from '../user/user-service';
+import { UserModel } from '../user/user-model';
+import { ChatService } from '../chat/chat-service';
+import { MessageModel } from '../chat/message-model';
 
 interface Item {
   id: string;

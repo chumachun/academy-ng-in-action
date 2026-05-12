@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { UserModel } from '../user';
+import { UserModel } from '../user/user-model';
 
 const filterUser =
   ({ name: testUserName }: UserModel) =>

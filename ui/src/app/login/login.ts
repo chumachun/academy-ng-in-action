@@ -9,7 +9,8 @@ import { MatFormField } from '@angular/material/select';
 import { MatInput } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 import { List } from '../list/list';
-import { UserModel, UserService } from '../user';
+import { UserModel } from '../user/user-model';
+import { UserService } from '../user/user-service';
 
 @Component({
   selector: 'app-login',

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { provideRouter } from '@angular/router';
-import { UserService } from '../user';
+import { UserService } from '../user/user-service';
 import { ChatService } from './chat-service';
 import { Chat } from './chat';
 import { MockChatService } from './mock-chat-service';

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { List } from './list';
 import { FilterUserPipe } from './filter-user-pipe';
-import { UserService } from '../user';
+import { UserService } from '../user/user-service';
 import { MockUserService } from '../user/mock-user-service';
 
 describe(List.name, () => {

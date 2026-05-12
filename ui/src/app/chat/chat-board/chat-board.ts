@@ -1,10 +1,9 @@
 import { Component, inject, input } from '@angular/core';
-
-import { ChatMessage } from '../chat-message/chat-message';
-import { UserModel } from '../../user';
-import { ChatService } from '../chat-service';
-import { combineLatest, map } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { combineLatest, map } from 'rxjs';
+import { ChatMessage } from '../chat-message/chat-message';
+import { UserModel } from '../../user/user-model';
+import { ChatService } from '../chat-service';
 
 @Component({
   selector: 'app-chat-board',

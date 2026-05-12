@@ -1,9 +1,10 @@
 import { Params, Routes } from '@angular/router';
-import { Main } from './main';
-import { Profile } from './profile';
-import { Chat } from './chat';
-import { List } from './list';
-import { hasUserGuard, Login } from './login';
+import { Main } from './main/main';
+import { Profile } from './profile/profile';
+import { Chat } from './chat/chat';
+import { List } from './list/list';
+import { Login } from './login/login';
+import { hasUserGuard } from './login/has-user-guard';
 
 export interface ProfileParams extends Params {
   username?: string;

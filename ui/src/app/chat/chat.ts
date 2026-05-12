@@ -4,12 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { MatFormField } from '@angular/material/select';
 import { MatInput } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
-import { first } from 'rxjs';
-import { ChatBoard } from './chat-board';
-import { ChatService } from './chat-service';
-import { UserModel, UserService } from '../user';
-import { List } from '../list/list';
 import { AsyncPipe } from '@angular/common';
+import { first } from 'rxjs';
+import { ChatBoard } from './chat-board/chat-board';
+import { ChatService } from './chat-service';
+import { UserModel } from '../user/user-model';
+import { List } from '../list/list';
+import { UserService } from '../user/user-service';
 
 @Component({
   selector: 'app-chat',

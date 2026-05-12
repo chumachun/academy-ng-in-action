@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
-import { Avatar } from '../shared/avatar';
+import { Avatar } from '../shared/avatar/avatar';
 import { UserService } from './user-service';
 
 @Component({

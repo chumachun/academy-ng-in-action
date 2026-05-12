@@ -6,7 +6,8 @@ import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/m
 import { AsyncPipe } from '@angular/common';
 import { List } from '../list/list';
 import { ProfileParams } from '../app.routes';
-import { UserModel, UserService } from '../user';
+import { UserService } from '../user/user-service';
+import { UserModel } from '../user/user-model';
 
 @Component({
   selector: 'app-profile',

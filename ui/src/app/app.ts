@@ -3,7 +3,8 @@ import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
 import { AsyncPipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { User, UserService } from './user';
+import { UserService } from './user/user-service';
+import { User } from './user/user';
 
 @Component({
   selector: 'app-root',

@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { provideRouter } from '@angular/router';
 import { Login } from './login';
 import { MockUserService } from '../user/mock-user-service';
-import { UserService } from '../user';
+import { UserService } from '../user/user-service';
 
 describe(Login.name, () => {
   let fixture: ComponentFixture<Login>;

@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { hasUserGuard } from './has-user-guard';
 import { isObservable } from 'rxjs';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { UserService } from '../user';
+import { UserService } from '../user/user-service';
 import { mockUserSubject$ } from '../user/mock-user-service';
 
 describe(hasUserGuard.name, () => {

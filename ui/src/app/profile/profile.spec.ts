@@ -1,8 +1,8 @@
 import { provideRouter } from '@angular/router';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Profile } from './profile';
-import { UserService } from '../user';
 import { MockUserService } from '../user/mock-user-service';
+import { UserService } from '../user/user-service';
 
 describe(Profile.name, () => {
   let fixture: ComponentFixture<Profile>;

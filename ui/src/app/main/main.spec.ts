@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Main } from './main';
-import { UserService } from '../user';
-import { ChatService } from '../chat';
+import { UserService } from '../user/user-service';
+import { ChatService } from '../chat/chat-service';
 
 describe(Main.name, () => {
   let fixture: ComponentFixture<Main>;

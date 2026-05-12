@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 import { HttpTransportType, HubConnectionBuilder } from '@microsoft/signalr';
 import { environment } from '../../environments/environment';
 import { MessageModel, MessageDto, mapMessage, mapMessages } from './message-model';
-import { UserModel } from '../user';
+import { UserModel } from '../user/user-model';
 
 const MESSAGES_ENDPOINT = `${environment.endpoint}/messages`;
 const CHAT_HUB_ENDPOINT = `${environment.endpoint}/chatHub`;

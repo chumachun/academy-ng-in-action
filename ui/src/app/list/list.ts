@@ -4,7 +4,8 @@ import { MatNavList, MatListItem } from '@angular/material/list';
 import { AsyncPipe } from '@angular/common';
 import { Avatar } from '../shared/avatar/avatar';
 import { FilterUserPipe } from './filter-user-pipe';
-import { UserModel, UserService } from '../user';
+import { UserModel } from '../user/user-model';
+import { UserService } from '../user/user-service';
 
 @Component({
   selector: 'app-list',
