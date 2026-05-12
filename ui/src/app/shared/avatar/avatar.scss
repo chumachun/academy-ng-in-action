@@ -7,14 +7,14 @@ $large: 40px;
 
 img {
   display: inline-block;
-  width: $small;
-  height: $small;
-  border-radius: $small;
+  width: $large;
+  height: $large;
+  border-radius: $large;
 
-  &.large {
-    width: $large;
-    height: $large;
-    border-radius: $large;
+  &.small {
+    width: $small;
+    height: $small;
+    border-radius: $small;
   }
 
   background-color: red;

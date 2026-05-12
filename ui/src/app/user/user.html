@@ -1,7 +1,7 @@
 @if (user$ | async; as user) {
   <button mat-button class="mdc-button" [routerLink]="['profile', user?.name]">
     <div class="profile-button-content">
-      <app-avatar [name]="user?.name ?? ''" size="small" />
+      <app-avatar [name]="user?.name ?? ''" [large]="false" />
       <div class="user-name">{{ user?.name }}</div>
     </div>
   </button>

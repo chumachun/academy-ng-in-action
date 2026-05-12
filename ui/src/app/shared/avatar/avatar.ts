@@ -12,7 +12,7 @@ import { createAvatar } from '@dicebear/core';
 export class Avatar {
   private readonly sanitizer = inject(DomSanitizer);
 
-  readonly large = input(true);
+  readonly small = input(false);
   readonly name = input.required<string>();
 
   get url() {
