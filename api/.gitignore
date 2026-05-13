@@ -15,12 +15,14 @@
 *.sublime-workspace
 /Properties
 
-# IDE - VSCode
+# Visual Studio Code
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# Rider
 rider.*
 
 # System Files
