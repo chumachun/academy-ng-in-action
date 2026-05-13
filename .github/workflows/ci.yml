@@ -46,7 +46,10 @@ jobs:
         SAFE_NAME=$(echo "${{ github.ref_name }}" | sed 's/\//-/g')
         echo "safe_branch=$SAFE_NAME" >> $GITHUB_OUTPUT
     - name: Create Coverage Badge
+      if: env.HAS_GIST_TOKEN == 'true'
       uses: schneegans/dynamic-badges-action@v1.8.0
+      env:
+        HAS_GIST_TOKEN: ${{ secrets.GIST_TOKEN != '' }}
       with:
         auth: ${{ secrets.GIST_TOKEN }}
         gistID: 39e4ee58f2a5186b8b7b34d063d57186
