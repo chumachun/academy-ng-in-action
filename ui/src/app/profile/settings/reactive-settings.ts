@@ -1,5 +1,6 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import {
   FormControl,
   NonNullableFormBuilder,
@@ -24,10 +25,11 @@ import {
 } from '@angular/material/select';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
-import { catchError, EMPTY, first, map, Observable, tap } from 'rxjs';
+import { catchError, EMPTY, first, map, startWith, tap } from 'rxjs';
 
 import { HairColor, hairColors, UserModel } from '../../user/user-model';
 import { UserService } from '../../user/user-service';
+import { AgePipe } from '../profile-view/age-pipe';
 
 @Component({
   selector: 'app-reactive-settings',
@@ -50,6 +52,7 @@ import { UserService } from '../../user/user-service';
     MatDatepickerInput,
     ReactiveFormsModule,
   ],
+  providers: [AgePipe],
   templateUrl: './reactive-settings.html',
 })
 export class ReactiveSettings {
@@ -57,9 +60,10 @@ export class ReactiveSettings {
   private readonly userService = inject(UserService);
   private readonly snackbar = inject(MatSnackBar);
   private readonly formBuilder = inject(NonNullableFormBuilder);
+  private readonly agePipe = inject(AgePipe);
 
   readonly availableHairColors = hairColors;
-  readonly currentProfile$: Observable<UserModel> = this.route.data.pipe(
+  readonly currentProfile$ = this.route.data.pipe(
     map(data => data['user']),
     map(u => ({ ...u })),
     tap(user => this.profileForm.patchValue(user)),
@@ -71,6 +75,18 @@ export class ReactiveSettings {
     lastName: new FormControl<string | null>(null),
     birthDate: new FormControl<Date | null>(null),
     hairColor: new FormControl<HairColor>(hairColors[0]),
+  });
+
+  private readonly birthDate = toSignal(
+    this.profileForm.controls.birthDate.valueChanges.pipe(
+      startWith(this.profileForm.controls.birthDate.value),
+    ),
+    { initialValue: null },
+  );
+
+  readonly age = computed(() => {
+    const birthDate = this.birthDate();
+    return birthDate ? this.agePipe.transform(birthDate) : 'Unknown';
   });
 
   save(updatedProfile: UserModel): void {

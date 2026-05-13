@@ -45,6 +45,12 @@
           </div>
           <div>
             <mat-form-field>
+              <mat-label>Age</mat-label>
+              <input matInput [readonly]="true" [value]="age()" />
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
               <mat-label>Hair color</mat-label>
               <mat-select formControlName="hairColor">
                 @for (hairColor of availableHairColors; track hairColor) {
