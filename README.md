@@ -1,25 +1,38 @@
-# academy-ng-in-action
+# Academy: Angular in Action
 
-## Development server
+[![CI](https://github.com/chumachun/academy-ng-in-action/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/chumachun/academy-ng-in-action/actions/workflows/ci.yml)
 
-The goal of this repo is to have a base application which can be used to teach on how to use the angular framework.
+This repository is a hands-on learning platform for the Angular framework. It provides a base application designed to teach everything from core fundamentals to advanced architectural patterns.
 
-It consists of two branches. The main branch, which serves as a starting point and a solution branch with a sample implementation as a guideline.
+## 📖 Documentation & Workshop Guide
 
-The repo consists of two parts. A UI where the exercises can be found and a API service to provide a fill UI-to-BE-to-UI flow.
+For the full workshop guide, setup instructions, and course materials, please visit our documentation site:
 
-## For the UI, please refer to
+👉 **[Academy: Angular in Action - Documentation Site](https://chumachun.github.io/academy-ng-in-action/)**
 
-[UI](./ui/README.md).
+---
 
-## For the API service, please refer to
+## 🚀 Workshop Structure
 
-[API service](./api/README.md).
+The repository uses a branch-based structure to guide you through two levels of learning:
 
-## CI Status
+| Course | Starting Branch | Solution Branch |
+| :--- | :--- | :--- |
+| **Basic** | `main` | `solution/basic` |
+| **Advanced** | `solution/basic` | `solution/advanced` |
 
-| __Branch__ | __Status__ | __Coverage__ |
-| :-- | :-- | :-- |
-| main | [![CI](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml) | ![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/chumachun/39e4ee58f2a5186b8b7b34d063d57186/raw/ng-in-action-coverage-main.json) |
-| basic solution | [![CI](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml/badge.svg?branch=solution/basic)](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml) | ![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/chumachun/39e4ee58f2a5186b8b7b34d063d57186/raw/ng-in-action-coverage-solution-basic.json) |
-| advanced solution | [![CI](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml/badge.svg?branch=solution/advanced)](https://github.com/chuma2150/academy-ng-in-action/actions/workflows/ci.yml) | ![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/chumachun/39e4ee58f2a5186b8b7b34d063d57186/raw/ng-in-action-coverage-solution-advanced.json) |
+### Key Components
+
+- **[UI](./ui/README.md):** The Angular frontend application.
+- **[API](./api/README.md):** The .NET backend service.
+
+---
+
+## 📊 CI Status & Coverage
+
+| Branch | Status | Coverage |
+| :--- | :--- | :--- |
+| `main` | [![CI](https://github.com/chumachun/academy-ng-in-action/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/chumachun/academy-ng-in-action/actions/workflows/ci.yml) | ![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/chumachun/39e4ee58f2a5186b8b7b34d063d57186/raw/ng-in-action-coverage-main.json) |
+| `solution/basic` | [![CI](https://github.com/chumachun/academy-ng-in-action/actions/workflows/ci.yml/badge.svg?branch=solution/basic)](https://github.com/chumachun/academy-ng-in-action/actions/workflows/ci.yml) | ![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/chumachun/39e4ee58f2a5186b8b7b34d063d57186/raw/ng-in-action-coverage-solution-basic.json) |
+| `solution/advanced` | [![CI](https://github.com/chumachun/academy-ng-in-action/actions/workflows/ci.yml/badge.svg?branch=solution/advanced)](https://github.com/chumachun/academy-ng-in-action/actions/workflows/ci.yml) | ![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/chumachun/39e4ee58f2a5186b8b7b34d063d57186/raw/ng-in-action-coverage-solution-advanced.json) |
+
