@@ -1,3 +1,4 @@
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
@@ -16,7 +17,15 @@ interface Item {
 
 @Component({
   selector: 'app-main',
-  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatButton, AsyncPipe],
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatButton,
+    AsyncPipe,
+    ScrollingModule,
+  ],
   templateUrl: './main.html',
   styleUrls: ['./main.scss'],
 })
@@ -36,5 +45,9 @@ export class Main {
 
   mapItems(items: UserModel[] | MessageModel[]): Item[] {
     return items.map(item => ({ id: item.id ?? '', value: JSON.stringify(item) }));
+  }
+
+  trackById(_: number, { id }: Item) {
+    return id;
   }
 }

@@ -20,18 +20,18 @@
 
   <mat-card-content class="main-button-list">
     @if (items$ | async; as items) {
-      <table>
-        <tr>
-          <th>Id</th>
-          <th>Json Value</th>
-        </tr>
-        @for (item of items; track item.id) {
+      <cdk-virtual-scroll-viewport itemSize="50" class="items">
+        <table>
           <tr>
+            <th>Id</th>
+            <th>Json Value</th>
+          </tr>
+          <tr *cdkVirtualFor="let item of items; trackBy: trackById" class="item">
             <td>{{ item.id }}</td>
             <td>{{ item.value }}</td>
           </tr>
-        }
-      </table>
+        </table>
+      </cdk-virtual-scroll-viewport>
     }
   </mat-card-content>
 </mat-card>
