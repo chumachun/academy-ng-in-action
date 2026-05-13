@@ -24,6 +24,7 @@ describe(UserService.name, () => {
     TestBed.configureTestingModule({
       providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()],
     });
+    vi.clearAllMocks();
 
     service = TestBed.inject(UserService);
   });
