@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { provideRouter } from '@angular/router';
+import { provideMockStore } from '@ngrx/store/testing';
 import { ReactiveSettings } from './reactive-settings';
 
 describe(ReactiveSettings.name, () => {
@@ -10,7 +11,7 @@ describe(ReactiveSettings.name, () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ReactiveSettings],
-      providers: [provideRouter([]), provideNativeDateAdapter()],
+      providers: [provideRouter([]), provideNativeDateAdapter(), provideMockStore()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ReactiveSettings);

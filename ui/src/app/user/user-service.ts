@@ -1,8 +1,11 @@
-import { Observable, BehaviorSubject, Subject, tap, map, switchMap, throwError, take } from 'rxjs';
+import { Observable, tap, map, switchMap, throwError, take } from 'rxjs';
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserModel, UserDto, mapUser } from './user-model';
+import { Store } from '@ngrx/store';
 import { environment } from '../../environments/environment';
+import { userActions } from './state/user-actions';
+import { selectUser } from './state/user-selectors';
 
 const USER_ENDPOINT = `${environment.endpoint}/users`;
 
@@ -11,12 +14,9 @@ const USER_ENDPOINT = `${environment.endpoint}/users`;
 })
 export class UserService {
   private readonly http = inject(HttpClient);
+  private readonly store = inject(Store);
 
-  private readonly userSubject$: Subject<UserModel | undefined> = new BehaviorSubject<
-    UserModel | undefined
-  >(undefined);
-
-  readonly user$ = this.userSubject$.asObservable();
+  readonly user$ = this.store.select(selectUser);
 
   constructor() {
     const currentUser = localStorage.getItem('currentUser');
@@ -28,7 +28,7 @@ export class UserService {
 
   set(user: UserModel | undefined) {
     localStorage.setItem('currentUser', JSON.stringify(user));
-    this.userSubject$.next(user);
+    this.store.dispatch(userActions.set({ user }));
   }
 
   unset() {

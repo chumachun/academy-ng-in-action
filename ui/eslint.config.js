@@ -4,6 +4,7 @@ const { defineConfig, globalIgnores } = require('eslint/config');
 const tseslint = require('typescript-eslint');
 const angular = require('angular-eslint');
 const stylistic = require('@stylistic/eslint-plugin');
+const ngrxEslint = require('@ngrx/eslint-plugin/v9');
 const prettierEslint = require('eslint-config-prettier/flat');
 
 module.exports = defineConfig(
@@ -23,6 +24,10 @@ module.exports = defineConfig(
         semi: true,
       }),
       angular.configs.tsRecommended,
+      ngrxEslint.configs.store,
+      ngrxEslint.configs.effects,
+      ngrxEslint.configs.operators,
+      ngrxEslint.configs.allTypeChecked,
     ],
     plugins: {
       '@stylistic': stylistic,
