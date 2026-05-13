@@ -5,6 +5,7 @@ const tseslint = require('typescript-eslint');
 const angular = require('angular-eslint');
 const stylistic = require('@stylistic/eslint-plugin');
 const simpleImportSort = require('eslint-plugin-simple-import-sort');
+const ngrxEslint = require('@ngrx/eslint-plugin/v9');
 const prettierEslint = require('eslint-config-prettier/flat');
 
 module.exports = tseslint.config(
@@ -24,6 +25,10 @@ module.exports = tseslint.config(
         semi: true,
       }),
       angular.configs.tsRecommended,
+      ngrxEslint.configs.store,
+      ngrxEslint.configs.effects,
+      ngrxEslint.configs.operators,
+      ngrxEslint.configs.allTypeChecked,
     ],
     plugins: {
       '@stylistic': stylistic,

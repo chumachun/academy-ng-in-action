@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { provideRouter } from '@angular/router';
+import { provideMockStore } from '@ngrx/store/testing';
 
 import { Settings } from './settings';
 
@@ -11,7 +12,7 @@ describe(Settings.name, () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Settings],
-      providers: [provideRouter([]), provideNativeDateAdapter()],
+      providers: [provideRouter([]), provideNativeDateAdapter(), provideMockStore()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Settings);

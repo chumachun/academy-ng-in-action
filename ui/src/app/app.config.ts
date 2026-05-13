@@ -7,6 +7,7 @@ import { provideStore } from '@ngrx/store';
 import { environment } from '../environments/environment';
 import { routes } from './app.routes';
 import { messageLoggingInterceptor } from './chat/message-logging-interceptor';
+import { userReducer } from './user/state/user-reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,5 +17,8 @@ export const appConfig: ApplicationConfig = {
     provideStore(),
     ...environment.providers,
     provideNativeDateAdapter(),
+    provideStore({
+      user: userReducer,
+    }),
   ],
 };
