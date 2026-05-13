@@ -1,4 +1,4 @@
-import { BehaviorSubject, of } from 'rxjs';
+import { of } from 'rxjs';
 import { vi } from 'vitest';
 import { MessageModel } from './message-model';
 import { mockUser } from '../user/mock-user-service';
@@ -26,10 +26,9 @@ export const mockReceivedMessages: MessageModel[] = [
     date: new Date('2024-07-19'),
   },
 ];
-export const mockReceivedMessagesSubject$ = new BehaviorSubject(mockReceivedMessages);
 
 export class MockChatService {
-  receivedMessages$ = mockReceivedMessagesSubject$.asObservable();
+  receivedMessages$ = of(mockReceivedMessages);
   openHub = vi.fn();
   closeHub = vi.fn();
   messages = vi.fn(() => of(mockMessages));

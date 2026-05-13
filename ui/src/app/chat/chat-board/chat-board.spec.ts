@@ -2,7 +2,7 @@ import { By } from '@angular/platform-browser';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChatBoard } from './chat-board';
 
-import { MockChatService, mockMessages, mockReceivedMessagesSubject$ } from '../mock-chat-service';
+import { MockChatService, mockMessages, mockReceivedMessages } from '../mock-chat-service';
 import { ChatService } from '../chat-service';
 import { mockUser } from '../../user/mock-user-service';
 
@@ -42,13 +42,13 @@ describe(ChatBoard.name, () => {
   it('should show one chat message component per message', () => {
     const result = getChatMessages().length;
 
-    expect(result).toBe(mockMessages.length + mockReceivedMessagesSubject$.value.length);
+    expect(result).toBe(mockMessages.length + mockReceivedMessages.length);
   });
 
   it('should sort chat messages by date and assign chat message to chat message component', () => {
     const result = getFirstChatMessage().componentInstance.message();
 
-    expect(result).toEqual(mockReceivedMessagesSubject$.value[0]);
+    expect(result).toEqual(mockReceivedMessages[0]);
   });
 
   it('should assign user to chat message component', () => {
