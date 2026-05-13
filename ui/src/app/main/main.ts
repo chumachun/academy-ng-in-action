@@ -3,6 +3,7 @@ import { Observable, map } from 'rxjs';
 import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
 import { AsyncPipe } from '@angular/common';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { UserService } from '../user/user-service';
 import { UserModel } from '../user/user-model';
 import { ChatService } from '../chat/chat-service';
@@ -15,7 +16,15 @@ interface Item {
 
 @Component({
   selector: 'app-main',
-  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatButton, AsyncPipe],
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatButton,
+    AsyncPipe,
+    ScrollingModule,
+  ],
   templateUrl: './main.html',
   styleUrls: ['./main.scss'],
 })
@@ -35,5 +44,9 @@ export class Main {
 
   mapItems(items: UserModel[] | MessageModel[]): Item[] {
     return items.map(item => ({ id: item.id ?? '', value: JSON.stringify(item) }));
+  }
+
+  trackById(_: number, { id }: Item) {
+    return id;
   }
 }
