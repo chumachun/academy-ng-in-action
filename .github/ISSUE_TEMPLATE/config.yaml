@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: 📖 Project README
+    url: https://github.com
+    about: Review the main technical overview and setup instructions.
+  - name: 📘 Project Wiki
+    url: https://github.com
+    about: Read the detailed project documentation and technical guides.
