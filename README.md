@@ -28,6 +28,12 @@ The repository uses a branch-based structure to guide you through two levels of 
 
 ---
 
+## 🤝 Contributing
+
+We welcome contributions! Please see our **[Contributing Guide](CONTRIBUTING.md)** for details on our branching strategy and how to get started.
+
+---
+
 ## 📊 CI Status & Coverage
 
 | Branch | Status | Coverage |

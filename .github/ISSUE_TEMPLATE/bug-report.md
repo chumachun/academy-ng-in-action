@@ -6,6 +6,9 @@ labels: bug
 assignees: ''
 ---
 
+> [!TIP]
+> Before reporting a bug, please check our **[Contributing Guidelines](https://github.com/chumachun/academy-ng-in-action/blob/main/CONTRIBUTING.md)**.
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 

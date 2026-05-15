@@ -6,6 +6,9 @@ labels: enhancement
 assignees: ''
 ---
 
+> [!TIP]
+> Before proposing a new feature, please check our **[Contributing Guidelines](https://github.com/chumachun/academy-ng-in-action/blob/main/CONTRIBUTING.md)** and consider starting a [Discussion](https://github.com/chumachun/academy-ng-in-action/discussions).
+
 ## 🎯 Goal
 
 Clear description of the functional change.

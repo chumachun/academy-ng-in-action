@@ -32,6 +32,16 @@ To get your environment ready, please follow the [Setup Guide](setup.md).
 
 ---
 
+## 🤝 Community & Contributing
+
+We welcome contributions and feedback!
+
+- [Contributing Guidelines](https://github.com/chumachun/academy-ng-in-action/blob/main/CONTRIBUTING.md)
+- [GitHub Discussions](https://github.com/chumachun/academy-ng-in-action/discussions)
+- [Report a Bug](https://github.com/chumachun/academy-ng-in-action/issues/new?template=bug-report.md)
+
+---
+
 ## Project Parts
 
 The application consists of two main parts:

@@ -24,6 +24,7 @@
 
 # Rider
 rider.*
+*.lscache
 
 # System Files
 .DS_Store
