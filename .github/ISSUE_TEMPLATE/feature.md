@@ -1,8 +1,8 @@
 ---
 name: 🎯 Feature request
 about: Standard task for feature requests.
-title: 'FEAT: '
-labels: enhancement
+title: ''
+labels: feature
 assignees: ''
 ---
 
