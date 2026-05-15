@@ -4,8 +4,8 @@ public static class UsersApi
 {
     public static void MapUsersApi(this RouteGroupBuilder group, IUserService service)
     {
-        group.MapGet("/", service.GetAsync);
-        group.MapPost("/", service.AddAsync);
-        group.MapPut("/", service.UpdateAsync);
+        _ = group.MapGet("/", service.GetAsync);
+        _ = group.MapPost("/", service.AddAsync);
+        _ = group.MapPut("/", service.UpdateAsync);
     }
 }

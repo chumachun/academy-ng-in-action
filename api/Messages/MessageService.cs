@@ -39,5 +39,5 @@ public class MessageService(ICosmosService service) : IMessageService
     private static async Task<IEnumerable<MessageDto>> ReadMessagesAsync(FeedIterator<MessageDto> iterator) =>
         iterator.HasMoreResults
             ? (await iterator.ReadNextAsync()).AsEnumerable()
-            : Enumerable.Empty<MessageDto>();
+            : [];
 }

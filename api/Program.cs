@@ -20,9 +20,10 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-    app.UseCors(b => b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+    _ = app
+        .UseSwagger()
+        .UseSwaggerUI()
+        .UseCors(b => b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 }
 
 app.UseHttpsRedirection();
