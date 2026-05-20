@@ -1,0 +1,29 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en",
+  "import": [],
+  "dictionaries": [],
+  "words": [],
+  "ignorePaths": [
+    "node_modules",
+    ".git",
+    "*.min.js",
+    "dist",
+    "bin",
+    "obj",
+    "coverage",
+    "**/cspell.json",
+    "**/.gitignore"
+  ],
+  "overrides": [
+    {
+      "filename": "**/.github/workflows/*yml",
+      "words": [
+        "GHAS",
+        "SARIF",
+        "zizmor"
+      ]
+    }
+  ]
+}
