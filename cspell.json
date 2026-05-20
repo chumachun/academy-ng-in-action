@@ -20,7 +20,9 @@
     {
       "filename": "**/.github/workflows/*yml",
       "words": [
+        "actionlint",
         "GHAS",
+        "reviewdog",
         "SARIF",
         "zizmor"
       ]

@@ -14,8 +14,12 @@ name: zizmor
 on:
   push:
     branches: [ "main", "solution/*" ]
+    paths:
+      - ".github/**"
   pull_request:
     branches: [ "main", "solution/*" ]
+    paths:
+      - ".github/**"
 
 permissions:
   contents: read
