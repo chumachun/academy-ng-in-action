@@ -3,6 +3,9 @@
   "editor.formatOnType": false,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
 
   "files.autoSave": "onFocusChange",
 
@@ -10,5 +13,7 @@
 
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+
+  "js/ts.preferences.importModuleSpecifier": "relative"
 }
