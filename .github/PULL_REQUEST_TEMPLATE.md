@@ -1,6 +1,6 @@
 ---
 name: 🔀 Pull Request
-about: Submit a pull request to Academy: Angular in Action
+about: "Submit a pull request to Academy: Angular in Action"
 title: ''
 labels: ''
 assignees: ''
