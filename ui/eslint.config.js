@@ -4,9 +4,10 @@ const { defineConfig, globalIgnores } = require('eslint/config');
 const tseslint = require('typescript-eslint');
 const angular = require('angular-eslint');
 const stylistic = require('@stylistic/eslint-plugin');
+const simpleImportSort = require('eslint-plugin-simple-import-sort');
 const prettierEslint = require('eslint-config-prettier/flat');
 
-module.exports = defineConfig(
+module.exports = tseslint.config(
   globalIgnores(['.angular/**', 'coverage/**', 'dist/**', 'node_modules/**']),
   {
     files: ['**/*.ts'],
@@ -26,6 +27,7 @@ module.exports = defineConfig(
     ],
     plugins: {
       '@stylistic': stylistic,
+      'simple-import-sort': simpleImportSort,
     },
     processor: angular.processInlineTemplates,
     rules: {
@@ -49,6 +51,7 @@ module.exports = defineConfig(
       'arrow-body-style': ['error', 'as-needed'],
       'comma-dangle': ['error', 'always-multiline'],
       curly: 'error',
+      'no-console': ['warn', { 'allow': ["warn", "error", "debug"] }],
       'no-restricted-imports': [
         'error',
         {
@@ -60,7 +63,7 @@ module.exports = defineConfig(
             {
               name: 'moment',
               message: 'Please use lodash-es/fooBar or dayjs instead.',
-            }, 
+            },
             {
               name: 'dayjs',
               message: 'Please use dayjs/esm instead.',
@@ -93,8 +96,10 @@ module.exports = defineConfig(
           ],
         },
       ],
-      'no-shadow': 'off',
       'prefer-template': 'error',
+
+      'simple-import-sort/imports': 'warn',
+      'simple-import-sort/exports': 'warn',
 
       '@stylistic/arrow-parens': ['error', 'as-needed'],
       '@stylistic/padding-line-between-statements': [
@@ -141,6 +146,7 @@ module.exports = defineConfig(
       '@typescript-eslint/no-namespace': 'off',
       '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
       '@typescript-eslint/no-non-null-assertion': 'error',
+      'no-shadow': 'off',
       '@typescript-eslint/no-shadow': 'error',
       '@typescript-eslint/no-unsafe-type-assertion': 'error',
       '@typescript-eslint/no-unused-vars': [

@@ -1,10 +1,11 @@
-import { Component, inject } from '@angular/core';
-import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
 import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
+import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { UserService } from './user/user-service';
+
 import { User } from './user/user';
+import { UserService } from './user/user-service';
 
 @Component({
   selector: 'app-root',

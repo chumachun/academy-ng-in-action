@@ -1,8 +1,9 @@
-import { Component, input } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { Component, input } from '@angular/core';
+
 import { Avatar } from '../../shared/avatar/avatar';
-import { MessageModel } from '../message-model';
 import { UserModel } from '../../user/user-model';
+import { MessageModel } from '../message-model';
 
 @Component({
   selector: 'app-chat-message',

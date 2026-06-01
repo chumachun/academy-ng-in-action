@@ -1,8 +1,9 @@
-import { Observable, BehaviorSubject, Subject, tap, map, switchMap, throwError, take } from 'rxjs';
-import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserModel, UserDto, mapUser } from './user-model';
+import { inject, Injectable } from '@angular/core';
+import { BehaviorSubject, map, Observable, Subject, switchMap, take, tap, throwError } from 'rxjs';
+
 import { environment } from '../../environments/environment';
+import { mapUser, UserDto, UserModel } from './user-model';
 
 const USER_ENDPOINT = `${environment.endpoint}/users`;
 

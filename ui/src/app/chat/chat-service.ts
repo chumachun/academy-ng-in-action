@@ -1,10 +1,11 @@
-import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, map, tap } from 'rxjs';
+import { inject, Injectable } from '@angular/core';
 import { HttpTransportType, HubConnectionBuilder } from '@microsoft/signalr';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
+
 import { environment } from '../../environments/environment';
-import { MessageModel, MessageDto, mapMessage, mapMessages } from './message-model';
 import { UserModel } from '../user/user-model';
+import { mapMessage, mapMessages, MessageDto, MessageModel } from './message-model';
 
 const MESSAGES_ENDPOINT = `${environment.endpoint}/messages`;
 const CHAT_HUB_ENDPOINT = `${environment.endpoint}/chatHub`;

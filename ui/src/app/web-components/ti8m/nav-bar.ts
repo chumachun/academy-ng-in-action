@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+import { css, html, LitElement } from 'lit';
 
 // Extend the LitElement base class
 // export the class, so it can be imported where it is needed

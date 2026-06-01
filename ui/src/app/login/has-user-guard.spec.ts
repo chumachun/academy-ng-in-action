@@ -1,9 +1,10 @@
 import { TestBed } from '@angular/core/testing';
-import { hasUserGuard } from './has-user-guard';
-import { firstValueFrom, isObservable } from 'rxjs';
 import { ActivatedRouteSnapshot, CanActivateFn, RouterStateSnapshot } from '@angular/router';
-import { UserService } from '../user/user-service';
+import { firstValueFrom, isObservable } from 'rxjs';
+
 import { mockUserSubject$ } from '../user/mock-user-service';
+import { UserService } from '../user/user-service';
+import { hasUserGuard } from './has-user-guard';
 
 describe(hasUserGuard.name, () => {
   const executeGuard: CanActivateFn = (...guardParameters) =>

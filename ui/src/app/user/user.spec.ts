@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+
+import { MockUserService } from './mock-user-service';
 import { User } from './user';
 import { UserService } from './user-service';
-import { MockUserService } from './mock-user-service';
 
 describe(User.name, () => {
   let fixture: ComponentFixture<User>;

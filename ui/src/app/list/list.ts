@@ -1,11 +1,12 @@
-import { Component, inject, input, model } from '@angular/core';
-import { map, zip } from 'rxjs';
-import { MatNavList, MatListItem } from '@angular/material/list';
 import { AsyncPipe } from '@angular/common';
+import { Component, inject, input, model } from '@angular/core';
+import { MatListItem, MatNavList } from '@angular/material/list';
+import { map, zip } from 'rxjs';
+
 import { Avatar } from '../shared/avatar/avatar';
-import { FilterUserPipe } from './filter-user-pipe';
 import { UserModel } from '../user/user-model';
 import { UserService } from '../user/user-service';
+import { FilterUserPipe } from './filter-user-pipe';
 
 @Component({
   selector: 'app-list',

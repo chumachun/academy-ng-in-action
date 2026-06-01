@@ -1,13 +1,14 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { catchError, filter, first, tap } from 'rxjs/operators';
-import { EMPTY } from 'rxjs';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
-import { MatFormField } from '@angular/material/select';
-import { MatInput } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
+import { MatInput } from '@angular/material/input';
+import { MatFormField } from '@angular/material/select';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { EMPTY } from 'rxjs';
+import { catchError, filter, first, tap } from 'rxjs/operators';
+
 import { List } from '../list/list';
 import { UserModel } from '../user/user-model';
 import { UserService } from '../user/user-service';

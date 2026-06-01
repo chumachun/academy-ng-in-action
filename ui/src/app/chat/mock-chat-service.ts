@@ -1,7 +1,8 @@
 import { of } from 'rxjs';
 import { vi } from 'vitest';
-import { MessageModel } from './message-model';
+
 import { mockUser } from '../user/mock-user-service';
+import { MessageModel } from './message-model';
 
 export const mockMessages: MessageModel[] = [
   {

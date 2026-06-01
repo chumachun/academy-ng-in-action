@@ -1,5 +1,6 @@
 import { BehaviorSubject, of } from 'rxjs';
 import { vi } from 'vitest';
+
 import { UserModel } from './user-model';
 
 export const mockUser: UserModel = { name: 'TEST USER' };

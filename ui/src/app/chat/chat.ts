@@ -1,16 +1,17 @@
-import { Component, OnInit, OnDestroy, inject } from '@angular/core';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
-import { FormsModule } from '@angular/forms';
-import { MatFormField } from '@angular/material/select';
-import { MatInput } from '@angular/material/input';
-import { MatButton } from '@angular/material/button';
 import { AsyncPipe } from '@angular/common';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
+import { MatInput } from '@angular/material/input';
+import { MatFormField } from '@angular/material/select';
 import { first } from 'rxjs';
+
+import { List } from '../list/list';
+import { UserModel } from '../user/user-model';
+import { UserService } from '../user/user-service';
 import { ChatBoard } from './chat-board/chat-board';
 import { ChatService } from './chat-service';
-import { UserModel } from '../user/user-model';
-import { List } from '../list/list';
-import { UserService } from '../user/user-service';
 
 @Component({
   selector: 'app-chat',

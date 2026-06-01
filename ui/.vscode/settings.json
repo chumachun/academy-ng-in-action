@@ -4,12 +4,14 @@
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
   },
 
   "files.autoSave": "onFocusChange",
 
   "eslint.probe": ["typescript", "html"],
+  "eslint.useFlatConfig": true,
 
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

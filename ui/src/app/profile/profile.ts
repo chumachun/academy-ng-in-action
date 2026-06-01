@@ -1,13 +1,14 @@
+import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
+import { ActivatedRoute, Router } from '@angular/router';
 import { combineLatest, from } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { Component, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
-import { AsyncPipe } from '@angular/common';
-import { List } from '../list/list';
+
 import { ProfileParams } from '../app.routes';
-import { UserService } from '../user/user-service';
+import { List } from '../list/list';
 import { UserModel } from '../user/user-model';
+import { UserService } from '../user/user-service';
 
 @Component({
   selector: 'app-profile',

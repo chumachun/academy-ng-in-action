@@ -1,8 +1,9 @@
-import { Component, inject, input } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
+import { Component, inject, input } from '@angular/core';
 import { combineLatest, map } from 'rxjs';
-import { ChatMessage } from '../chat-message/chat-message';
+
 import { UserModel } from '../../user/user-model';
+import { ChatMessage } from '../chat-message/chat-message';
 import { ChatService } from '../chat-service';
 
 @Component({

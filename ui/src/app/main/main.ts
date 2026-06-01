@@ -1,12 +1,13 @@
-import { Component, inject } from '@angular/core';
-import { Observable, map } from 'rxjs';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
-import { MatButton } from '@angular/material/button';
 import { AsyncPipe } from '@angular/common';
-import { UserService } from '../user/user-service';
-import { UserModel } from '../user/user-model';
+import { Component, inject } from '@angular/core';
+import { MatButton } from '@angular/material/button';
+import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
+import { map, Observable } from 'rxjs';
+
 import { ChatService } from '../chat/chat-service';
 import { MessageModel } from '../chat/message-model';
+import { UserModel } from '../user/user-model';
+import { UserService } from '../user/user-service';
 
 interface Item {
   id: string;

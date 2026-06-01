@@ -1,10 +1,10 @@
-import { By } from '@angular/platform-browser';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ChatBoard } from './chat-board';
+import { By } from '@angular/platform-browser';
 
-import { MockChatService, mockMessages, mockReceivedMessages } from '../mock-chat-service';
-import { ChatService } from '../chat-service';
 import { mockUser } from '../../user/mock-user-service';
+import { ChatService } from '../chat-service';
+import { MockChatService, mockMessages, mockReceivedMessages } from '../mock-chat-service';
+import { ChatBoard } from './chat-board';
 
 describe(ChatBoard.name, () => {
   let fixture: ComponentFixture<ChatBoard>;
