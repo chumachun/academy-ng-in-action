@@ -50,7 +50,9 @@ export class UserService {
     );
   }
 
-  // Exercise 4: Add update function here.
+  update(user: UserModel): Observable<void> {
+    return this.http.put<void>(USER_ENDPOINT, user).pipe(tap(() => this.set(user)));
+  }
 
   list(): Observable<UserModel[]> {
     return this.http.get<UserDto[]>(USER_ENDPOINT).pipe(map(users => users.map(mapUser)));

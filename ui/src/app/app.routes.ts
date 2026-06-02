@@ -7,7 +7,7 @@ import { Login } from './login/login';
 import { Main } from './main/main';
 import { Profile } from './profile/profile';
 import { currentUserResolver } from './profile/settings/current-user-resolver';
-import { Settings } from './profile/settings/settings';
+import { ReactiveSettings } from './profile/settings/reactive-settings';
 
 export interface ProfileParams extends Params {
   username?: string;
@@ -42,7 +42,7 @@ export const routes: Routes = [
   },
   {
     path: 'profile/edit',
-    component: Settings,
+    component: ReactiveSettings,
     canActivate: [hasUserGuard],
     resolve: {
       user: currentUserResolver,

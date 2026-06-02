@@ -1,5 +1,88 @@
-<div class="profile">
-  @if (currentProfile$ | async; as currentProfile) {
-    <app-profile-view [user]="currentProfile" />
-  }
+<div>
+  <mat-card class="large-centred-content">
+    <mat-card-header>
+      <mat-card-title color="primary"> Settings </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      @if (currentProfile$ | async; as currentProfile) {
+        <form #loginForm="ngForm" (ngSubmit)="save(currentProfile)">
+          <div>
+            <mat-form-field [class.has-error]="name.errors && (name.touched || name.dirty)">
+              <mat-label>Name</mat-label>
+              <input
+                matInput
+                type="text"
+                name="name"
+                [(ngModel)]="currentProfile.name"
+                #name="ngModel"
+                required
+              />
+              @if (!name.valid && (name.touched || name.dirty)) {
+                <mat-error class="help-block">Name must not be empty</mat-error>
+              }
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <mat-label>First Name</mat-label>
+              <input
+                matInput
+                type="text"
+                name="firstName"
+                [(ngModel)]="currentProfile.firstName"
+                #firstName="ngModel"
+              />
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <mat-label>Last Name</mat-label>
+              <input
+                matInput
+                type="text"
+                name="lastName"
+                [(ngModel)]="currentProfile.lastName"
+                #lastName="ngModel"
+              />
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <mat-label>Birth Date</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                name="birthDate"
+                [(ngModel)]="currentProfile.birthDate"
+                #birthDate="ngModel"
+              />
+              <mat-datepicker-toggle matSuffix [for]="picker" />
+              <mat-datepicker #picker />
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <mat-label>Hair color</mat-label>
+              <mat-select
+                name="hairColor"
+                [(ngModel)]="currentProfile.hairColor"
+                #hairColor="ngModel"
+              >
+                @for (hairColor of availableHairColors; track hairColor) {
+                  <mat-option [value]="hairColor">
+                    {{ hairColor }}
+                  </mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">
+              Save
+            </button>
+          </div>
+        </form>
+      }
+    </mat-card-content>
+  </mat-card>
 </div>
